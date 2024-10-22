@@ -34,8 +34,12 @@
                                     <form:input type="text" class="form-control" path="phone" />
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Full Name:</label>
-                                    <form:input type="text" class="form-control" path="fullName" />
+                                    <label class="form-label">First Name:</label>
+                                    <form:input type="text" class="form-control" path="firstName" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Last Name:</label>
+                                    <form:input type="text" class="form-control" path="lastName" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Address:</label>

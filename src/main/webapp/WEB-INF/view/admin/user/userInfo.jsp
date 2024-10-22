@@ -33,8 +33,12 @@
                                         <td>${user.email}</td>
                                     </tr>
                                     <tr>
-                                        <th>FullName</th>
-                                        <td>${user.fullName}</td>
+                                        <th>FirstName</th>
+                                        <td>${user.firstName}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>LastName</th>
+                                        <td>${user.lastName}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone</th>

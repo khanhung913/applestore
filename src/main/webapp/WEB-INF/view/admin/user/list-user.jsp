@@ -28,7 +28,8 @@
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Full Name</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -37,7 +38,8 @@
                                         <tr>
                                             <th scope="row">${user.id}</th>
                                             <td>${user.email}</td>
-                                            <td>${user.fullName}</td>
+                                            <td>${user.firstName}</td>
+                                            <td>${user.lastName}</td>
                                             <td>
                                                 <a href="user-info/${user.id}" class="btn btn-success">View</a>
                                                 <a href="user-update/${user.id}" class="btn btn-warning mx-3">Update</a>
