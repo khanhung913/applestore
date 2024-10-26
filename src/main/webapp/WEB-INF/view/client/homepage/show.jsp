@@ -35,7 +35,7 @@
                 <link href="/client/css/style.css" rel="stylesheet">
             </head>
 
-            <>
+            <body>
 
                 <!-- Spinner Start -->
                 <div id="spinner"
@@ -546,6 +546,6 @@
 
                 <!-- Template Javascript -->
                 <script src="/client/js/main.js"></script>
-                </body>
+            </body>
 
             </html>
