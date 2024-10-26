@@ -1,23 +1,28 @@
 package com.applestore.applestore.controller.admin;
-
 import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.applestore.applestore.domain.User;
+import com.applestore.applestore.service.UploadService;
 import com.applestore.applestore.service.UserService;
 
 @Controller
 public class UserController {
     private final UserService userService;
+    private final UploadService uploadService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UploadService uploadService) {
         this.userService = userService;
-
+        this.uploadService = uploadService;
     }
 
     @RequestMapping("/admin/user")
@@ -65,8 +70,12 @@ public class UserController {
         return "admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
-    public String CreateSuccess(Model model, @ModelAttribute("newUser") User user) {
+    @PostMapping(value = "/admin/user/create")
+    public String CreateSuccess(Model model, @ModelAttribute("newUser") User user,
+            @RequestParam("file") MultipartFile file) {
+        String avatar = this.uploadService.handleUploadFile(file, "avatar");
+        user.setAvatar(avatar);
+        user.setRole(this.userService.handleGetRoleByName(user.getRole().getRoleName()));
         this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }

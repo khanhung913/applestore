@@ -17,54 +17,46 @@ public class OrderDetail {
     private Order order;
     @ManyToOne
     private Product product;
+    
 
     private long orderQuantity;
     private double price;
-
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
-
-    public long getOrderQuantity() {
-        return orderQuantity;
-    }
-
-    public void setOrderQuantity(long orderQuantity) {
-        this.orderQuantity = orderQuantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public Order getOrder() {
         return order;
     }
-
     public void setOrder(Order order) {
         this.order = order;
     }
-
     public Product getProduct() {
         return product;
     }
-
     public void setProduct(Product product) {
         this.product = product;
     }
-
+    public long getOrderQuantity() {
+        return orderQuantity;
+    }
+    public void setOrderQuantity(long orderQuantity) {
+        this.orderQuantity = orderQuantity;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
     @Override
     public String toString() {
         return "OrderDetail [id=" + id + ", order=" + order + ", product=" + product + ", orderQuantity="
                 + orderQuantity + ", price=" + price + "]";
     }
+
+   
 
 }
