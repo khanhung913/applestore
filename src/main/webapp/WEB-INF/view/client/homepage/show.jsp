@@ -42,13 +42,11 @@
                     <div class="spinner-grow text-primary" role="status"></div>
                 </div>
                 <!-- Spinner End -->
-
                 <jsp:include page="../layout/header.jsp" />
 
                 <jsp:include page="../layout/banner.jsp" />
 
                 <jsp:include page="../layout/featur.jsp" />
-
 
                 <!-- Fruits Shop Start-->
                 <div class="container-fluid fruite py-5">
@@ -56,14 +54,14 @@
                         <div class="tab-class text-center">
                             <div class="row g-4">
                                 <div class="col-lg-4 text-start">
-                                    <h1>Our Organic Products</h1>
+                                    <h1>商品</h1>
                                 </div>
                                 <div class="col-lg-8 text-end">
                                     <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                         <li class="nav-item">
                                             <a class="d-flex m-2 py-2 bg-light rounded-pill active"
                                                 data-bs-toggle="pill" href="#tab-1">
-                                                <span class="text-black" style="width: 130px;">All Products</span>
+                                                <span class="text-black" style="width: 130px;">全ての商品</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -533,7 +531,6 @@
 
                 <jsp:include page="../layout/comment.jsp" />
                 <jsp:include page="../layout/footer.jsp" />
-
 
                 <!-- JavaScript Libraries -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
