@@ -41,6 +41,7 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+    
 
     public double getPrice() {
         return price;
@@ -104,6 +105,7 @@ public class Product {
                 + productDesc + ", quantity=" + quantity + ", sold=" + sold + ", target=" + target + ", orderDetails="
                 + orderDetails + "]";
     }
+    
 
     
     

@@ -46,49 +46,48 @@
 
                 <jsp:include page="../layout/banner.jsp" />
 
-                <jsp:include page="../layout/featur.jsp" />
+
 
                 <!-- Fruits Shop Start-->
-                <div class="container-fluid fruite py-5">
+                <div class="container-fluid fruite ">
                     <div class="container py-5">
                         <div class="tab-class text-center">
                             <div class="row g-4">
-                                <div class="col-lg-4 text-start">
-                                    <h1>商品</h1>
-                                </div>
-                                <div class="col-lg-8 text-end">
-                                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill active"
-                                                data-bs-toggle="pill" href="#tab-1">
-                                                <span class="text-black" style="width: 130px;">全ての商品</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-2">
-                                                <span class="text-black" style="width: 130px;">iPhone</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-3">
-                                                <span class="text-black" style="width: 130px;">Mac</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-4">
-                                                <span class="text-black" style="width: 130px;">Apple Watch</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-5">
-                                                <span class="text-black" style="width: 130px;">AirPods</span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-lg-8">
+                                        <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                                            <!-- <li class="nav-item">
+                                                <a class="d-flex m-2 py-2 bg-light rounded-pill active"
+                                                    data-bs-toggle="pill" href="#tab-1">
+                                                    <span class="text-black" style="width: 130px;">全ての商品</span>
+                                                </a>
+                                            </li> -->
+                                            <li class="nav-item">
+                                                <a class="d-flex py-2 m-2 bg-light rounded-pill active"
+                                                    data-bs-toggle="pill" href="#tab-1">
+                                                    <span class="text-black" style="width: 130px;">iPhone</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
+                                                    href="#tab-2">
+                                                    <span class="text-black" style="width: 130px;">Mac</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
+                                                    href="#tab-3">
+                                                    <span class="text-black" style="width: 130px;">Apple Watch</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
+                                                    href="#tab-4">
+                                                    <span class="text-black" style="width: 130px;">AirPods</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-content">
@@ -98,188 +97,190 @@
                                             <div class="row g-4">
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-2.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Raspberries</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-4.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Apricots</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-3.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Banana</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-1.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Oranges</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-2.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Raspberries</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/iphone16promax.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">iPhone</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">iPhone 16 Pro Max</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥189.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -290,46 +291,92 @@
                                             <div class="row g-4">
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/macbookair.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Macbook</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">MacBook Air 2023</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥200.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-2.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/macbookair.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Macbook</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Raspberries</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">MacBook Air 2023</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥200.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/macbookair.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">Macbook</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">MacBook Air 2023</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥200.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/macbookair.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">Macbook</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">MacBook Air 2023</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥200.000</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -344,46 +391,92 @@
                                             <div class="row g-4">
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-1.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/applewatchultra.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Apple Watch</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Oranges</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">Apple Watch Ultra</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥110.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-6.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/applewatchultra.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Apple Watch</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Apple</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">Apple Watch Ultra</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥110.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/applewatchultra.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">Apple Watch</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">Apple Watch Ultra</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥110.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/applewatchultra.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">Apple Watch</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">Apple Watch Ultra</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込)¥110.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -398,46 +491,92 @@
                                             <div class="row g-4">
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/airpodspro2.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">AirPods</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">AirPods Pro 2</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込) ¥39.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-4.jpg"
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/airpodspro2.png"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">AirPods</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                            <h4>Apricots</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                            <h4 class="my-1">AirPods Pro 2</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込) ¥39.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/airpodspro2.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">AirPods</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">AirPods Pro 2</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込) ¥39.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                            <img src="/client/img/airpodspro2.png"
+                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                        </div>
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">AirPods</div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
+                                                            <h4 class="my-1">AirPods Pro 2</h4>
+                                                            <p class="text-black fs-5 mb-0 mt-3">(税込) ¥39.999</p>
+                                                            <div
+                                                                class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                <a href="#"
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -452,7 +591,8 @@
                                             <div class="row g-4">
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
                                                             <img src="/client/img/fruite-item-3.jpg"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
@@ -466,16 +606,17 @@
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                                 <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
                                                             <img src="/client/img/fruite-item-2.jpg"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
@@ -489,16 +630,17 @@
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                                 <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
+                                                        <div
+                                                            class="product-img border border-secondary border-bottom-0 rounded-top">
                                                             <img src="/client/img/fruite-item-1.jpg"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
@@ -512,9 +654,9 @@
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                                 <p class="text-black fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                                 <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add to cart</a>
+                                                                    カートに入れる</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -528,7 +670,7 @@
                     </div>
                 </div>
                 <!-- Fruits Shop End-->
-
+                <jsp:include page="../layout/featur.jsp" />
                 <jsp:include page="../layout/comment.jsp" />
                 <jsp:include page="../layout/footer.jsp" />
 

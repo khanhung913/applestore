@@ -85,7 +85,7 @@ h1,
     font-family: "Raleway", sans-serif;
     font-weight: 600;
     line-height: 1.2;
-    color: #45595b
+    color: #000;
 }
 
 h1,
@@ -3122,7 +3122,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-    color: #747d88
+    color: #a4b2c2;
 }
 
 .btn-check:focus+.btn,
@@ -8435,6 +8435,10 @@ fieldset:disabled .btn {
 
 .bg-dark {
     background-color: #45595b !important
+}
+
+.bg-gray {
+    background-color: #cccccc !important
 }
 
 .bg-body {

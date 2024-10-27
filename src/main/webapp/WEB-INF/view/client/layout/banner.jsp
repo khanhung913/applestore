@@ -2,7 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <!-- Hero Start -->
-            <div class="container-fluid py-5 mb-5 hero-header">
+            <div class="container-fluid py-5 hero-header">
                 <div class="container py-5">
                     <div class="row g-5 align-items-center">
                         <div class="col-md-12 col-lg-7">
