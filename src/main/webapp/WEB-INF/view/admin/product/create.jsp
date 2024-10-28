@@ -10,7 +10,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>User Create - SB Admin</title>
+                <title>Product Create - SB Admin</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script>
@@ -37,43 +37,39 @@
                                     <div class="col-md-6 col-12 mx-auto">
                                         <h3>Create a user</h3>
                                         <hr />
-                                        <form:form method="post" action="/admin/user/create"
-                                            enctype="multipart/form-data" modelAttribute="newUser" class="row g-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Email address:</label>
-                                                <form:input type="email" class="form-control" path="email" />
+                                        <form:form method="post" action="/admin/product/create"
+                                            enctype="multipart/form-data" modelAttribute="newProduct" class="row g-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Product Name:</label>
+                                                <form:input type="text" class="form-control" path="name" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label">Password:</label>
-                                                <form:input type="password" class="form-control" path="password" />
+                                                <label class="form-label">Price:</label>
+                                                <form:input type="text" class="form-control" path="price" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label">First Name:</label>
-                                                <form:input type="text" class="form-control" path="firstName" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Last Name:</label>
-                                                <form:input type="text" class="form-control" path="lastName" />
+                                                <label class="form-label">Quantity:</label>
+                                                <form:input type="text" class="form-control" path="quantity" />
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Phone number:</label>
-                                                <form:input type="text" class="form-control" path="phone" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Address:</label>
-                                                <form:input type="text" class="form-control" path="address" />
+                                                <label class="form-label">Product Description:</label>
+                                                <form:textarea type="text" rows="5" class="form-control"
+                                                    path="productDesc" />
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label">Role:</label>
-                                                <form:select class="form-select" path="role.roleName">
-                                                    <form:option value="User">User</form:option>
-                                                    <form:option value="Admin">Admin</form:option>
+                                                <label class="form-label">Target:</label>
+                                                <form:select class="form-select" path="target">
+                                                    <form:option value="iPhone">iPhone</form:option>
+                                                    <form:option value="Mac">Mac</form:option>
+                                                    <form:option value="Apple Watch">Apple Watch</form:option>
+                                                    <form:option value="AirPods">AirPods</form:option>
                                                 </form:select>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="avatarFile" class="form-label">Choose avatar:</label>
-                                                <input class="form-control" type="file" id="avatarFile" name="file"
-                                                    accept=".png,.jpg.jpeg" />
+                                                <label for="productPictureFile" class="form-label">Choose Product
+                                                    Picture:</label>
+                                                <input class="form-control" type="file" id="productPictureFile"
+                                                    name="file" accept=".png,.jpg.jpeg" />
                                             </div>
                                             <div class="col-12 mt-5 d-flex justify-content-center">
                                                 <img style="max-height: 150px;display: none;" id="avatarPreview"

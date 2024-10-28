@@ -10,7 +10,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>User Info - SB Admin</title>
+                <title>Product Info - SB Admin</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -24,7 +24,7 @@
                             <div class="container mt-5">
                                 <div class="row">
                                     <div class="col-md-6 col-12 mx-auto">
-                                        <h3>User Info</h3>
+                                        <h3>Product Info</h3>
                                         <table class="table">
                                             <thead>
 
@@ -32,32 +32,36 @@
                                             <tbody>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <td>${user.id}</td>
+                                                    <td>${product.id}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Email</th>
-                                                    <td>${user.email}</td>
+                                                    <th>Name</th>
+                                                    <td>${product.name}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>FirstName</th>
-                                                    <td>${user.firstName}</td>
+                                                    <th>Price</th>
+                                                    <td>${product.price}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>LastName</th>
-                                                    <td>${user.lastName}</td>
+                                                    <th>Quantity</th>
+                                                    <td>${product.quantity}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Phone</th>
-                                                    <td>${user.phone}</td>
+                                                    <th>Sold</th>
+                                                    <td>${product.sold}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Address</th>
-                                                    <td>${user.address}</td>
+                                                    <th>Target</th>
+                                                    <td>${product.target}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <td><img src="/client/img/ProductImage/${product.image}"></td>
                                                 </tr>
                                             </tbody>
                                             </hr>
                                         </table>
-                                        <a href="/admin/user" class="btn btn-primary">Back</a>
+                                        <a href="/admin/product" class="btn btn-primary">Back</a>
                                     </div>
                                 </div>
                             </div>

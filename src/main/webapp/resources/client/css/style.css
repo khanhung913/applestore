@@ -317,6 +317,11 @@
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
 }
 
+.product-img {
+    height: 205px !important;
+
+}
+
 .fruite .fruite-item .product-img {
     overflow: hidden;
     transition: 0.5s;
@@ -332,9 +337,6 @@
 }
 
 /*** Fruits End ***/
-.buy-btn {
-    background-color: #404040 !important;
-}
 
 /*** vesitable Start ***/
 .vesitable .vesitable-item {
