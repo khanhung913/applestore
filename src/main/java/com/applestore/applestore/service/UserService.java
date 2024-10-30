@@ -14,15 +14,13 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository,RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
-        this.roleRepository=roleRepository;
+        this.roleRepository = roleRepository;
     }
 
     public void handleSaveUser(User user) {
-        if (!user.getEmail().isEmpty() && !user.getPassword().isEmpty() && !user.getFirstName().isEmpty()) {
-            this.userRepository.save(user);
-        }
+        this.userRepository.save(user);
     }
 
     public List<User> handlePrintAllUser() {
@@ -41,7 +39,7 @@ public class UserService {
         this.userRepository.deleteById(id);
     }
 
-    public Role handleGetRoleByName(String name){
+    public Role handleGetRoleByName(String name) {
         return this.roleRepository.findByName(name);
     }
 }

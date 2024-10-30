@@ -15,7 +15,7 @@
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
                                 <a href="/" class="nav-item nav-link active mx-4">ホーム</a>
-                                <a href="/product/{id}" class="nav-item nav-link mx-4">商品</a>
+                                <a href="/product" class="nav-item nav-link mx-4">商品</a>
                                 <a href="#" class="nav-item nav-link mx-4">連絡</a>
                             </div>
                             <div class="d-flex m-3 me-0">
@@ -29,7 +29,7 @@
                                         class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-light px-1"
                                         style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                                 </a>
-                                <a href="#" class="my-auto">
+                                <a href="/login" class="my-auto">
                                     <i class="fas fa-user fa-2x"></i>
                                 </a>
                             </div>

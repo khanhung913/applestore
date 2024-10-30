@@ -42,18 +42,22 @@
                                             <div class="col-md-6">
                                                 <label class="form-label">Email address:</label>
                                                 <form:input type="email" class="form-control" path="email" />
+                                                <form:errors path="email" />
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Password:</label>
                                                 <form:input type="password" class="form-control" path="password" />
+                                                <form:errors path="password" />
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">First Name:</label>
                                                 <form:input type="text" class="form-control" path="firstName" />
+                                                <form:errors path="firstName" />
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Last Name:</label>
                                                 <form:input type="text" class="form-control" path="lastName" />
+                                                <form:errors path="lastName" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Phone number:</label>

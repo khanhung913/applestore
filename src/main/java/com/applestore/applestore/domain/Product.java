@@ -8,6 +8,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
@@ -15,10 +19,18 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotNull
+    @NotBlank(message = "商品名を入力してください")
     private String name;
+    @NotNull
+    @Min(value = 1, message = "値段を入力してください")
     private long price;
     private String image;
+    @NotNull
+    @NotBlank(message = "説明を入力してください")
     private String productDesc;
+    @NotNull
+    @Min(value = 1, message = "数量を入力してください")
     private long quantity;
     private long sold;
     private String target;

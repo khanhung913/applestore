@@ -35,26 +35,49 @@
                             <div class="container mt-5">
                                 <div class="row">
                                     <div class="col-md-6 col-12 mx-auto">
-                                        <h3>Create a user</h3>
+                                        <h3>Create a Product</h3>
                                         <hr />
                                         <form:form method="post" action="/admin/product/create"
                                             enctype="multipart/form-data" modelAttribute="newProduct" class="row g-3">
+                                            <c:set var="errorName">
+                                                <form:errors path="name" cssClass="invalid-feedback" />
+                                            </c:set>
+                                            <c:set var="errorPrice">
+                                                <form:errors path="price" cssClass="invalid-feedback" />
+                                            </c:set>
+                                            <c:set var="errorQuantity">
+                                                <form:errors path="quantity" cssClass="invalid-feedback" />
+                                            </c:set>
+                                            <c:set var="errorDesc">
+                                                <form:errors path="productDesc" cssClass="invalid-feedback" />
+                                            </c:set>
                                             <div class="mb-3">
                                                 <label class="form-label">Product Name:</label>
-                                                <form:input type="text" class="form-control" path="name" />
+                                                <form:input type="text"
+                                                    class="form-control ${not empty errorName ? 'is-invalid':''}"
+                                                    path="name" />
+                                                ${errorName}
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Price:</label>
-                                                <form:input type="text" class="form-control" path="price" />
+                                                <form:input type="text"
+                                                    class="form-control ${not empty errorPrice ? 'is-invalid':''}"
+                                                    path="price" />
+                                                ${errorPrice}
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Quantity:</label>
-                                                <form:input type="text" class="form-control" path="quantity" />
+                                                <form:input type="text"
+                                                    class="form-control ${not empty errorQuantity ? 'is-invalid':''}"
+                                                    path="quantity" />
+                                                ${errorQuantity}
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Product Description:</label>
-                                                <form:textarea type="text" rows="5" class="form-control"
+                                                <form:textarea type="text" rows="5"
+                                                    class="form-control ${not empty errorDesc ? 'is-invalid':'has-validation'}"
                                                     path="productDesc" />
+                                                ${errorDesc}
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Target:</label>

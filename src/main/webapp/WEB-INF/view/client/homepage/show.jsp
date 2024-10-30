@@ -34,6 +34,7 @@
 
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
+                    <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
                 </head>
 
                 <body>
@@ -94,17 +95,21 @@
                                                     <c:forEach var="iphone" items="${iphones}">
                                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                                             <div class="rounded position-relative fruite-item">
-                                                                <div
-                                                                    class="product-img border border-secondary border-bottom-0 rounded-top">
-                                                                    <img src="/client/img/ProductImage/${iphone.image}"
-                                                                        class="img-fluid w-100 rounded-top">
-                                                                </div>
+                                                                <a href="/product/${iphone.id}">
+                                                                    <div
+                                                                        class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                                        <img src="/client/img/ProductImage/${iphone.image}"
+                                                                            class="img-fluid w-100 rounded-top">
+                                                                    </div>
+                                                                </a>
                                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                                     style="top: 10px; left: 10px;">${iphone.target}
                                                                 </div>
                                                                 <div
                                                                     class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                                    <h4 class="my-1">${iphone.name}</h4>
+                                                                    <a href="/product/${iphone.id}">
+                                                                        <h4 class="my-1">${iphone.name}</h4>
+                                                                    </a>
                                                                     <p class="text-black fs-5 mb-0 mt-3">
                                                                         (税込)
                                                                         <fmt:formatNumber type="number" pattern=""
@@ -132,17 +137,21 @@
                                                     <c:forEach var="mac" items="${macs}">
                                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                                             <div class="rounded position-relative fruite-item">
-                                                                <div
-                                                                    class="product-img border border-secondary border-bottom-0 rounded-top">
-                                                                    <img src="/client/img/ProductImage/${mac.image}"
-                                                                        class="img-fluid w-100 rounded-top">
-                                                                </div>
+                                                                <a href="/product/${mac.id}">
+                                                                    <div
+                                                                        class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                                        <img src="/client/img/ProductImage/${mac.image}"
+                                                                            class="img-fluid w-100 rounded-top">
+                                                                    </div>
+                                                                </a>
                                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                                     style="top: 10px; left: 10px;">${mac.target}
                                                                 </div>
                                                                 <div
                                                                     class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                                    <h4 class="my-1">${mac.name}</h4>
+                                                                    <a href="/product/${mac.id}">
+                                                                        <h4 class="my-1">${mac.name}</h4>
+                                                                    </a>
                                                                     <p class="text-black fs-5 mb-0 mt-3">
                                                                         (税込)
                                                                         <fmt:formatNumber type="number" pattern=""
@@ -170,17 +179,21 @@
                                                     <c:forEach var="applewatch" items="${applewatchs}">
                                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                                             <div class="rounded position-relative fruite-item">
-                                                                <div
-                                                                    class="product-img border border-secondary border-bottom-0 rounded-top">
-                                                                    <img src="/client/img/ProductImage/${applewatch.image}"
-                                                                        class="img-fluid w-100 rounded-top">
-                                                                </div>
+                                                                <a href="/product/${applewatch.id}">
+                                                                    <div
+                                                                        class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                                        <img src="/client/img/ProductImage/${applewatch.image}"
+                                                                            class="img-fluid w-100 rounded-top">
+                                                                    </div>
+                                                                </a>
                                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                                     style="top: 10px; left: 10px;">${applewatch.target}
                                                                 </div>
                                                                 <div
                                                                     class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                                    <h4 class="my-1">${applewatch.name}</h4>
+                                                                    <a href="/product/${applewatch.id}">
+                                                                        <h4 class="my-1">${applewatch.name}</h4>
+                                                                    </a>
                                                                     <p class="text-black fs-5 mb-0 mt-3">
                                                                         (税込)
                                                                         <fmt:formatNumber type="number" pattern=""
@@ -208,17 +221,21 @@
                                                     <c:forEach var="airpods" items="${airpods}">
                                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                                             <div class="rounded position-relative fruite-item">
-                                                                <div
-                                                                    class="product-img border border-secondary border-bottom-0 rounded-top">
-                                                                    <img src="/client/img/ProductImage/${airpods.image}"
-                                                                        class="img-fluid w-100 rounded-top">
-                                                                </div>
+                                                                <a href="/product/${airpods.id}">
+                                                                    <div
+                                                                        class="product-img border border-secondary border-bottom-0 rounded-top">
+                                                                        <img src="/client/img/ProductImage/${airpods.image}"
+                                                                            class="img-fluid w-100 rounded-top">
+                                                                    </div>
+                                                                </a>
                                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                                     style="top: 10px; left: 10px;">${airpods.target}
                                                                 </div>
                                                                 <div
                                                                     class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
-                                                                    <h4 class="my-1">${airpods.name}</h4>
+                                                                    <a href="/product/${airpods.id}">
+                                                                        <h4 class="my-1">${airpods.name}</h4>
+                                                                    </a>
                                                                     <p class="text-black fs-5 mb-0 mt-3">
                                                                         (税込)
                                                                         <fmt:formatNumber type="number" pattern=""
