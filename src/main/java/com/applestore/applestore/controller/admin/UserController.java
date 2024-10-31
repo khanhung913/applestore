@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.applestore.applestore.config.SecurityConfiguration;
 import com.applestore.applestore.domain.User;
 import com.applestore.applestore.service.UploadService;
 import com.applestore.applestore.service.UserService;

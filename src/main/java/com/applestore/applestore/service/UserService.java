@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.applestore.applestore.domain.Role;
 import com.applestore.applestore.domain.User;
+import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.repository.RoleRepository;
 import com.applestore.applestore.repository.UserRepository;
 
@@ -41,5 +42,17 @@ public class UserService {
 
     public Role handleGetRoleByName(String name) {
         return this.roleRepository.findByName(name);
+    }
+
+    public User mapperUser(User user, RegisterDTO RegisterDTO) {
+        user.setEmail(RegisterDTO.getEmail());
+        user.setFirstName(RegisterDTO.getFirstName());
+        user.setLastName(RegisterDTO.getLastName());
+        user.setPassword(RegisterDTO.getPassword());
+        return user;
+    }
+
+    public boolean checkExistByEmail(String email) {
+        return this.userRepository.existsByEmail(email);
     }
 }

@@ -1,6 +1,8 @@
 package com.applestore.applestore.controller.client;
 
 import java.util.List;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,19 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
-import com.applestore.applestore.domain.UserDTO;
+import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.service.ProductService;
+import com.applestore.applestore.service.UserService;
 
 import jakarta.validation.Valid;
 
 @Controller
 public class HomePageClient {
+    private final PasswordEncoder passwordEncoder;
     private final ProductService productService;
-    private final UserDTO userDTO;
+    private final UserService userService;
+    // private final RegisterDTO RegisterDTO;
 
-    public HomePageClient(ProductService productService,UserDTO userDTO) {
+    public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder) {
         this.productService = productService;
-        this.userDTO =userDTO;
+        this.userService = userService;
+        // this.RegisterDTO = RegisterDTO;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/")
@@ -40,20 +47,25 @@ public class HomePageClient {
 
     @GetMapping("/login")
     public String login() {
-        return "client/login/login";
+        return "client/auth/login";
     }
 
     @GetMapping("/signup")
     public String signup(Model model) {
-        model.addAttribute("newUser", new User());
-        return "client/login/signup";
+        model.addAttribute("newRegisterDTO", new RegisterDTO());
+        return "client/auth/signup";
     }
 
     @PostMapping("/signup")
-    public String signupRegister(Model model, @ModelAttribute("newUserDTO") @Valid UserDTO userDTO,
+    public String signupRegister(Model model, @ModelAttribute("newRegisterDTO") @Valid RegisterDTO RegisterDTO,
             BindingResult bindingResult) {
-
-        return "redirect:/client/login";
+        User user = new User();
+        this.userService.mapperUser(user, RegisterDTO);
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        if (bindingResult.hasErrors())
+            return "client/auth/signup";
+        this.userService.handleSaveUser(user);
+        return "redirect:/login";
     }
 
 }

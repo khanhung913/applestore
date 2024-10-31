@@ -59,43 +59,74 @@
                                             </div>
                                             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Enter your
                                                 details to register</h2>
-                                            <form:form action="/signin" method="post" modelAttribute="newUserDTO">
+                                            <form:form action="/signup" method="post" modelAttribute="newRegisterDTO">
                                                 <div class="row gy-2 overflow-hidden">
+                                                    <c:set var="errorEmail">
+                                                        <form:errors path="email" cssClass="invalid-feedback" />
+                                                    </c:set>
+                                                    <c:set var="errorFirstName">
+                                                        <form:errors path="firstName" cssClass="invalid-feedback" />
+                                                    </c:set>
+                                                    <c:set var="errorLastName">
+                                                        <form:errors path="lastName" cssClass="invalid-feedback" />
+                                                    </c:set>
+                                                    <c:set var="errorPassword">
+                                                        <form:errors path="password" cssClass="invalid-feedback" />
+                                                    </c:set>
+                                                    <c:set var="errorConfirmPassword">
+                                                        <form:errors path="confirmPassword"
+                                                            cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
-                                                            <input type="email" class="form-control" name="email"
-                                                                id="email" placeholder="name@example.com" path="email">
+                                                            <form:input type="email"
+                                                                class="form-control ${not empty errorEmail ? 'is-invalid':''}"
+                                                                name="email" id="email" placeholder="name@example.com"
+                                                                path="email" />
                                                             <label for="email" class="form-label">Email</label>
+                                                            ${errorEmail}
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" name="firstName"
-                                                                id="firstName" placeholder="First Name" path="firstName">
+                                                            <form:input type="text"
+                                                                class="form-control ${not empty errorFirstName ? 'is-invalid':''}"
+                                                                name="firstName" id="firstName" placeholder="First Name"
+                                                                path="firstName" />
                                                             <label for="firstName" class="form-label">First Name</label>
+                                                            ${errorFirstName}
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" name="lastName"
-                                                                id="lastName" placeholder="Last Name" path="lastName">
+                                                            <form:input type="text"
+                                                                class="form-control ${not empty errorLastName ? 'is-invalid':''}"
+                                                                name="lastName" id="lastName" placeholder="Last Name"
+                                                                path="lastName" />
                                                             <label for="lastName" class="form-label">Last Name</label>
+                                                            ${errorLastName}
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-floating mb-3">
-                                                            <input type="password" class="form-control" name="password"
-                                                                id="password" value="" placeholder="Password" path="password">
+                                                            <form:input type="password"
+                                                                class="form-control ${not empty errorPassword ? 'is-invalid':''}"
+                                                                name="password" id="password" value=""
+                                                                placeholder="Password" path="password" />
                                                             <label for="password" class="form-label">Password</label>
+                                                            ${errorPassword}
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-floating mb-3">
-                                                            <input type="password" class="form-control"
+                                                            <form:input type="password"
+                                                                class="form-control ${not empty errorConfirmPassword ? 'is-invalid':''}"
                                                                 name="confirmpassword" id="confirmpassword" value=""
-                                                                placeholder="Confirm Password">
+                                                                placeholder="Confirm Password" path="confirmPassword" />
                                                             <label for="confirmpassword" class="form-label">Confirm
                                                                 Password</label>
+                                                            ${errorConfirmPassword}
+
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
