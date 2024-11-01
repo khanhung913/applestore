@@ -14,48 +14,65 @@
                         </button>
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="/" class="nav-item nav-link active mx-4">ホーム</a>
-                                <a href="/product" class="nav-item nav-link mx-4">商品</a>
-                                <a href="#" class="nav-item nav-link mx-4">連絡</a>
+                                <a href="/" class="nav-item nav-link active mx-5">ホーム</a>
+                                <a href="/product" class="nav-item nav-link mx-5">商品</a>
+                                <a href="/contact" class="nav-item nav-link mx-5">連絡</a>
                             </div>
-                            <div class="d-flex m-3 me-0">
-                                <button
-                                    class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
-                                    data-bs-toggle="modal" data-bs-target="#searchModal"><i
-                                        class="fas fa-search text-primary"></i></button>
-                                <a href="#" class="position-relative me-4 my-auto">
-                                    <i class="fa fa-shopping-bag fa-2x"></i>
-                                    <span
-                                        class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-light px-1"
-                                        style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                                </a>
-                                <a href="/login" class="my-auto">
-                                    <i class="fas fa-user fa-2x"></i>
-                                </a>
+                            <div class="d-flex m-3 me-0 flex-end me-5">
+                                <c:if test="${not empty pageContext.request.userPrincipal}">
+                                    <a href="#" class="position-relative me-4 my-auto">
+                                        <i class="fa fa-shopping-bag fa-2x"></i>
+                                    </a>
+                                    <div class="dropdown my-auto">
+                                        <a href="#" class="dropdown" role="button" id="dropdownMenuLink"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="far fa-user-circle fa-2x"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end p-4" aria-
+                                            labelledby="dropdownMenuLink">
+                                            <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
+                                                <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
+                                                    src="/client/img/kuma.jpg" />
+                                                <div class="text-center my-3 text-primary">
+                                                    ${pageContext.request.userPrincipal.name}
+                                                </div>
+                                            </li>
+                                            <li class="d-flex justify-content-center flex-lg-wrap">
+                                                <a href="#"
+                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                        class="fas fa-user-circle me-2 my-1"></i>
+                                                    アカウント管理</a>
+                                            </li>
+                                            <li class="d-flex justify-content-center flex-lg-wrap my-3">
+                                                <a href="#"
+                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                        class="fas fa-shopping-cart me-2 my-1"></i>
+                                                    注文履歴</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li class="d-flex justify-content-center flex-lg-wrap">
+                                                <form action="/logout" method="post">
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                        value="${_csrf.token}" />
+                                                    <button
+                                                        class="dropdown-item btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"
+                                                        href=""><i
+                                                            class="fas fa-sign-out-alt my-auto mx-2"></i>サインアウト</button>
+
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </c:if>
+                                <c:if test="${empty pageContext.request.userPrincipal}">
+                                    <a href="/login" class="position-relative me-4 my-auto">
+                                        <i class="fas fa-sign-in-alt fa-2x"></i>
+                                    </a>
+                                </c:if>
                             </div>
                         </div>
                     </nav>
                 </div>
             </div>
-            <!-- Navbar End --
-<!-- Modal Search Start -->
-            <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content rounded-0">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body d-flex align-items-center">
-                            <div class="input-group w-75 mx-auto d-flex">
-                                <input type="search" class="form-control p-3" placeholder="keywords"
-                                    aria-describedby="search-icon-1">
-                                <span id="search-icon-1" class="input-group-text p-3"><i
-                                        class="fa fa-search"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal Search End -->

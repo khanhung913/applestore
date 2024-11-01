@@ -47,62 +47,75 @@
 
 
                     <!-- Login 13 - Bootstrap Brain Component -->
+
                     <section class="auth-form">
                         <div class="container">
                             <div class="opacity-85 vh-100 row d-flex justify-content-center align-items-center">
                                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                                     <div class="card border border-light-subtle rounded-3 shadow-sm bg-light">
                                         <div class="card-body p-3 p-md-4 p-xl-5">
-                                            <div class="text-center mb-3">
+                                            <div class="text-center mb-4">
                                                 <a href="/">
                                                     <img src="/client/img/applelogo.png" alt="Apple Logo" width="50">
                                                 </a>
                                             </div>
-                                            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your
-                                                account</h2>
-                                            <form action="#!">
-                                                <div class="row gy-2 overflow-hidden">
+                                            <c:if test="${param.error != null}">
+                                                <h1 class="fs-5 fw-normal text-center text-danger mb-4">
+                                                    メールまたはパスワードが間違っています。
+                                                </h1>
+                                            </c:if>
+                                            <c:if test="${param.logout != null}">
+                                                <h2 class="fs-5 fw-normal text-center text-success mb-4">
+                                                    Log Out Success。
+                                                </h2>
+                                            </c:if>
+                                            <c:if test="${param.success != null}">
+                                                <h2 class="fs-5 fw-normal text-center text-success mt-3 mb-4">
+                                                    アカウントが作成されました。
+                                                </h2>
+                                            </c:if>
+                                            <form action="/login" method="post">
+                                                <div class="row gy-2 overflow-hidden mt-3">
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
-                                                            <input type="email" class="form-control" name="email"
-                                                                id="email" placeholder="name@example.com" required>
-                                                            <label for="email" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" name="username"
+                                                                id="username" placeholder="name@example.com" required>
+                                                            <label for="username" class="form-label">メール</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
                                                             <input type="password" class="form-control" name="password"
                                                                 id="password" value="" placeholder="Password" required>
-                                                            <label for="password" class="form-label">Password</label>
+                                                            <label for="password" class="form-label">パスワード</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="d-flex gap-2 justify-content-between">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    name="rememberMe" id="rememberMe">
-                                                                <label class="form-check-label text-secondary"
-                                                                    for="rememberMe">
-                                                                    Keep me logged in
-                                                                </label>
-                                                            </div>
-                                                            <a href="#!"
-                                                                class="link-primary text-decoration-none">Forgot
-                                                                password?</a>
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                        value="${_csrf.token}" />
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                name="rememberMe" id="rememberMe">
+                                                            <label class="form-check-label text-secondary"
+                                                                for="rememberMe">
+                                                                ログインしたままにする
+                                                            </label>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-12 text-center"><a href="#!"
+                                                            class="link-primary text-decoration-none">パスワード忘れた?</a>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="d-grid my-3">
-                                                            <button class="btn btn-primary btn-lg" type="submit">Log
-                                                                in</button>
+                                                            <button class="btn btn-primary btn-lg"
+                                                                type="submit">ロクイン</button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <p class="m-0 text-secondary text-center">Don't have an account?
-                                                            <a href="/signup"
-                                                                class="link-primary text-decoration-none">Sign
-                                                                up</a>
-                                                        </p>
+                                                    <div class="col-12 text-center">
+
+                                                        <a href="/signup"
+                                                            class="link-primary text-decoration-none">アカウントを作成する</a>
+
                                                     </div>
                                                 </div>
                                             </form>

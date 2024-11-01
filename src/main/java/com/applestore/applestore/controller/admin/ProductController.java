@@ -53,7 +53,7 @@ public class ProductController {
             BindingResult bindingResult,
             @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors()) {
-            return "/admin/product/create";
+            return "admin/product/create";
         }
         String productPicture = this.uploadService.handleUploadProductFile(file, "ProductImage");
         product.setImage(productPicture);

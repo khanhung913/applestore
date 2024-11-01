@@ -52,7 +52,7 @@
                                                             <a href="user-update/${user.id}"
                                                                 class="btn btn-warning mx-3">Update</a>
                                                             <a href="user-delete/${user.id}"
-                                                                class="btn btn-danger">Delete</a>
+                                                                class="btn btn-danger" onsubmit="return submitForm(this);">Delete</a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

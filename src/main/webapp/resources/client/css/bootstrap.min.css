@@ -4181,7 +4181,7 @@ fieldset:disabled .btn {
     padding: .25rem 1rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #000;
     text-align: inherit;
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0);
@@ -4190,8 +4190,8 @@ fieldset:disabled .btn {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: #1e2125;
-    background-color: #e9ecef
+    color: #fff !important;
+    background-color: #000 !important;
 }
 
 .dropdown-item.active,
@@ -4473,7 +4473,7 @@ fieldset:disabled .btn {
 
 .nav-fill .nav-item .nav-link,
 .nav-justified .nav-item .nav-link {
-    width: 100%
+    width: 100%;
 }
 
 .tab-content>.tab-pane {
@@ -4520,7 +4520,7 @@ fieldset:disabled .btn {
     flex-direction: column;
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: none;
 }
 
 .navbar-nav .nav-link {
@@ -4790,7 +4790,8 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #000
+    color: #000;
+    text-align: end;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -7431,6 +7432,10 @@ fieldset:disabled .btn {
 
 .w-50 {
     width: 50% !important
+}
+
+.mw-50 {
+    max-width: 50% !important;
 }
 
 .w-75 {
@@ -12626,4 +12631,16 @@ fieldset:disabled .btn {
 
 .opacity-85 {
     opacity: .85;
+}
+
+.fas {
+    color: #000;
+}
+
+.btn:hover .fas {
+    color: #fff;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }

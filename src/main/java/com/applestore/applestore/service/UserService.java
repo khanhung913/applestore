@@ -28,9 +28,9 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> handleFindByEmail() {
-        return this.userRepository.findByEmail("khanhung913@gmail.com");
-    }
+    // public List<User> handleFindByEmail() {
+    // return this.userRepository.findByEmail("khanhung913@gmail.com");
+    // }
 
     public User handleFindById(long id) {
         return this.userRepository.findById(id);
@@ -54,5 +54,9 @@ public class UserService {
 
     public boolean checkExistByEmail(String email) {
         return this.userRepository.existsByEmail(email);
+    }
+
+    public User getUserByEmail(String mail) {
+        return this.userRepository.findByEmail(mail);
     }
 }

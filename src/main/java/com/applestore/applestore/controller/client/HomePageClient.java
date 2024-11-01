@@ -13,22 +13,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
+import com.applestore.applestore.repository.RoleRepository;
 import com.applestore.applestore.service.ProductService;
 import com.applestore.applestore.service.UserService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomePageClient {
     private final PasswordEncoder passwordEncoder;
     private final ProductService productService;
     private final UserService userService;
-    // private final RegisterDTO RegisterDTO;
+    private final RoleRepository roleRepository;
 
-    public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder) {
+    public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder,
+            RoleRepository roleRepository) {
         this.productService = productService;
         this.userService = userService;
-        // this.RegisterDTO = RegisterDTO;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -62,10 +65,21 @@ public class HomePageClient {
         User user = new User();
         this.userService.mapperUser(user, RegisterDTO);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        user.setRole(this.roleRepository.findByName("User"));
         if (bindingResult.hasErrors())
             return "client/auth/signup";
         this.userService.handleSaveUser(user);
-        return "redirect:/login";
+        return "redirect:/login?success";
+    }
+
+    @GetMapping("/404-not-found")
+    public String notFoundPage(Model model) {
+        return "client/auth/error404";
+    }
+
+    @GetMapping("/contact")
+    public String getContactPage(Model model) {
+        return "client/homepage/contact";
     }
 
 }
