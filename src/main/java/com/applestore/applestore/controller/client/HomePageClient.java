@@ -18,7 +18,6 @@ import com.applestore.applestore.service.ProductService;
 import com.applestore.applestore.service.UserService;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomePageClient {
