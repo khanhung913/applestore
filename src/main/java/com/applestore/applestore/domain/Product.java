@@ -33,6 +33,8 @@ public class Product {
     private long quantity;
     private long sold;
     private String target;
+    @OneToMany(mappedBy = "product")
+    private List<CartItem> cartItems;
 
     @OneToMany(mappedBy = "product")
     private List<OrderDetail> orderDetails;
@@ -114,6 +116,14 @@ public class Product {
         return "Product [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + ", productDesc="
                 + productDesc + ", quantity=" + quantity + ", sold=" + sold + ", target=" + target + ", orderDetails="
                 + orderDetails + "]";
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
 }

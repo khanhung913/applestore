@@ -3,8 +3,8 @@
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <!-- Navbar start -->
             <div class="container-fluid fixed-top">
-                <div class="container px-0">
-                    <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <div class="container px-0 mx-5">
+                    <nav class="navbar navbar-light bg-white navbar-expand-xl mx-5">
                         <a href="/" class="navbar-brand">
                             <img src="/client/img/Apple-Logo.png" width="100px" alt="">
                         </a>
@@ -20,7 +20,7 @@
                             </div>
                             <div class="d-flex m-3 me-0 flex-end me-5">
                                 <c:if test="${not empty pageContext.request.userPrincipal}">
-                                    <a href="#" class="position-relative me-4 my-auto">
+                                    <a href="/cart" class="position-relative me-4 my-auto">
                                         <i class="fa fa-shopping-bag fa-2x"></i>
                                     </a>
                                     <div class="dropdown my-auto">
@@ -32,9 +32,9 @@
                                             labelledby="dropdownMenuLink">
                                             <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
                                                 <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
-                                                    src="/client/img/kuma.jpg" />
+                                                    src="/image/avatar/${sessionScope.avatar}" />
                                                 <div class="text-center my-3 text-primary">
-                                                    ${pageContext.request.userPrincipal.name}
+                                                    ${sessionScope.lastName}
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap">

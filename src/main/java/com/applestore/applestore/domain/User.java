@@ -10,11 +10,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -27,7 +29,7 @@ public class User {
     @NotEmpty(message = "Email cannot be empty")
     private String email;
     @NotNull
-    @StrongPassword
+    @Size(min = 4)
     private String password;
     @NotNull
     @NotBlank(message = "First Name cannot be empty")
@@ -44,6 +46,9 @@ public class User {
 
     @OneToMany(mappedBy = "users")
     private List<Order> orders;
+
+    @OneToOne
+    private Cart carts;
 
     public long getId() {
         return id;
@@ -130,6 +135,14 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
                 + ", lastName=" + lastName + ", address=" + address + ", phone=" + phone + ", avatar=" + avatar
                 + ", role=" + role + ", orders=" + orders + "]";
+    }
+
+    public Cart getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Cart carts) {
+        this.carts = carts;
     }
 
 }

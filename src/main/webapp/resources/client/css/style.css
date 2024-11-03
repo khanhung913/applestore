@@ -438,6 +438,7 @@
 
 /*** testimonial Start ***/
 .testimonial .owl-nav .owl-prev {
+    margin-top: 10px;
     position: absolute;
     top: -58px;
     right: 0;
@@ -454,6 +455,7 @@
 }
 
 .testimonial .owl-nav .owl-next {
+    margin-top: 10px;
     position: absolute;
     top: -58px;
     right: 88px;

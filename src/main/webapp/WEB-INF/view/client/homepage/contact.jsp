@@ -23,10 +23,10 @@
             <body>
 
 
-                <div class="auth-form">
-                    <div class="contact-form-wrapper d-flex justify-content-center">
+                <div class="auth-form vh-100">
+                    <div class="contact-form-wrapper d-flex justify-content-center opacity-85">
                         <form action="#" class="contact-form">
-                            <h5 class="title">連絡</h5>
+                            <h3 class="title mb-5 mt-3">お問い合わせ</h3>
                             <p class="description">サポートが必要な場合、サポートが必要な場合、またはその他の質問がある場合はお気軽にお問い合わせください。
                             </p>
                             <div>

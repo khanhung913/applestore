@@ -28,9 +28,9 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    // public List<User> handleFindByEmail() {
-    // return this.userRepository.findByEmail("khanhung913@gmail.com");
-    // }
+    public User handleFindByEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
 
     public User handleFindById(long id) {
         return this.userRepository.findById(id);

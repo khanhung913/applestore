@@ -18,6 +18,7 @@ import com.applestore.applestore.service.ProductService;
 import com.applestore.applestore.service.UserService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomePageClient {
@@ -79,6 +80,11 @@ public class HomePageClient {
     @GetMapping("/contact")
     public String getContactPage(Model model) {
         return "client/homepage/contact";
+    }
+
+    @GetMapping("/cart")
+    public String getCartPage(Model model) {
+        return "client/product/cart";
     }
 
 }

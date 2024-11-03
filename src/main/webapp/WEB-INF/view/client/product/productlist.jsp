@@ -68,18 +68,24 @@
                                                     <div
                                                         class="p-4 border border-secondary border-top-0 rounded-bottom background-light">
                                                         <a href="/product/${product.id}">
-                                                            <h4 class="my-1">${product.name}</h4>
+                                                            <h4 class="my-1 text-center">${product.name}</h4>
                                                         </a>
-                                                        <p class="text-black fs-5 mb-0 mt-3">
+                                                        <p class="text-black fs-5 mb-0 mt-3 text-center">
                                                             (税込)
                                                             <fmt:formatNumber type="number" pattern=""
                                                                 value="${product.price}" />
                                                         </p>
                                                         <div class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                            <a href="#"
-                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                カートに入れる</a>
+                                                            <form action="/addItemToCart/${product.id}" method="post">
+                                                                <input type="hidden" name="${_csrf.parameterName}"
+                                                                    value="${_csrf.token}" />
+                                                                <button
+                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                    カートに入れる
+
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>

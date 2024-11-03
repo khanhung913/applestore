@@ -83,7 +83,8 @@ public class UserController {
             @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors())
             return "admin/user/create";
-        user.setAvatar(this.uploadService.handleUploadFile(file, "avatar"));
+        String avt = this.uploadService.handleUploadFile(file, "avatar");
+        user.setAvatar(avt);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
         user.setRole(this.userService.handleGetRoleByName(user.getRole().getRoleName()));
         this.userService.handleSaveUser(user);
