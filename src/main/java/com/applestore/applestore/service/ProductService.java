@@ -1,6 +1,7 @@
 package com.applestore.applestore.service;
 
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.applestore.applestore.domain.Cart;
@@ -66,5 +67,11 @@ public class ProductService {
                 this.cartItemRepository.save(item);
             }
         }
+    }
+    public Cart handleFindCartByUser(User user){
+        return this.cartRepository.findByUser(user);
+    }
+    public List<CartItem> handleFindListItemByCart(Cart cart){
+        return this.cartItemRepository.findByCart(cart);
     }
 }

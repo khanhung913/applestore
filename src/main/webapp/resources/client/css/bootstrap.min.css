@@ -2006,7 +2006,7 @@ progress {
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
     width: 100%;
     margin-bottom: 1rem;
-    color: #747d88;
+    color: #000;
     vertical-align: top;
     border-color: #dee2e6
 }
@@ -7814,6 +7814,10 @@ fieldset:disabled .btn {
 
 .mt-5 {
     margin-top: 3rem !important
+}
+
+.mt-6rem {
+    margin-top: 6rem !important
 }
 
 .mt-auto {

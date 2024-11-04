@@ -2,7 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <!-- Navbar start -->
-            <div class="container-fluid fixed-top">
+            <div class="container-fluid fixed-top d-flex justify-content-center">
                 <div class="container px-0 mx-5">
                     <nav class="navbar navbar-light bg-white navbar-expand-xl mx-5">
                         <a href="/" class="navbar-brand">
@@ -22,6 +22,9 @@
                                 <c:if test="${not empty pageContext.request.userPrincipal}">
                                     <a href="/cart" class="position-relative me-4 my-auto">
                                         <i class="fa fa-shopping-bag fa-2x"></i>
+                                        <span
+                                            class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1"
+                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.totalProduct}</span>
                                     </a>
                                     <div class="dropdown my-auto">
                                         <a href="#" class="dropdown" role="button" id="dropdownMenuLink"
