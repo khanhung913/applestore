@@ -50,7 +50,7 @@ public class ProductService {
             if (cart == null) {
                 Cart newCart = new Cart();
                 newCart.setUser(user);
-                newCart.setSum(1);
+                newCart.setSum(0);
                 this.cartRepository.save(newCart);
             }
             Product product = this.productRepositoty.findById(productId);
@@ -62,6 +62,9 @@ public class ProductService {
                 cartItem.setProduct(product);
                 cartItem.setQuantity(1);
                 this.cartItemRepository.save(cartItem);
+                cart.setSum(cart.getSum()+1);
+                this.cartRepository.save(cart);
+
             } else {
                 item.setQuantity(item.getQuantity() + 1);
                 this.cartItemRepository.save(item);

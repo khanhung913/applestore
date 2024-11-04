@@ -78,6 +78,7 @@
                                                 </td>
                                                 <td>
                                                     <p class="mb-0 mt-4">
+                                                        (税込)
                                                         <fmt:formatNumber type="number" pattern=""
                                                             value="${item.product.price}" />
                                                     </p>
@@ -92,7 +93,8 @@
                                                         </div>
                                                         <input type="text"
                                                             class="form-control form-control-sm text-center border-0"
-                                                            value="${item.quantity}">
+                                                            value="${item.quantity}" data-cart-detail-id="${item.id}"
+                                                            data-cart-detail-price="${item.product.price}">
                                                         <div class="input-group-btn">
                                                             <button
                                                                 class="btn btn-sm btn-plus rounded-circle bg-light border">
@@ -102,21 +104,24 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <c:set var="quantity">
-                                                        ${item.quantity}
-                                                    </c:set>
-                                                    <c:set var="price">
+
+                                                    <!-- <c:set var="price">
                                                         ${item.product.price}
-                                                    </c:set>
-                                                    <p class="mb-0 mt-4">
+                                                    </c:set> -->
+                                                    <p class="mb-0 mt-4" data-cart-detail-id="${item.id}">
+                                                        (税込)
                                                         <fmt:formatNumber type="number" pattern=""
-                                                            value="${quantity*price}" />
+                                                            value="${item.quantity*item.product.price}" />
                                                     </p>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                        <i class="fa fa-times text-danger"></i>
-                                                    </button>
+                                                    <form action="/delete-item/${item.id}" method="post">
+                                                        <input type="hidden" name="${_csrf.parameterName}"
+                                                            value="${_csrf.token}" />
+                                                        <button class="btn btn-md rounded-circle bg-light border mt-4">
+                                                            <i class="fa fa-times text-danger"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
 
                                             </tr>
@@ -132,7 +137,7 @@
                                             <h1 class="display-6 mb-4 text-center">Total</span></h1>
                                             <div class="d-flex justify-content-between mb-4">
                                                 <h5 class="mb-0 me-4">Subtotal:</h5>
-                                                <p class="mb-0">
+                                                <p class="mb-0" data-cart-total-price="${totalPrice}">(税込)
                                                     <fmt:formatNumber type="number" pattern="" value="${totalPrice}" />
                                                 </p>
                                             </div>
@@ -145,7 +150,7 @@
                                         </div>
                                         <div class="py-3 mb-4 border-top border-bottom d-flex justify-content-between">
                                             <h5 class="mb-0 ps-4 me-4">Total</h5>
-                                            <p class="mb-0 mx-4">
+                                            <p class="mb-0 mx-4" data-cart-total-price="${totalPrice}">(税込)
                                                 <fmt:formatNumber type="number" pattern="" value="${totalPrice}" />
                                             </p>
                                         </div>

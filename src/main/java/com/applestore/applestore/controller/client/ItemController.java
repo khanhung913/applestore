@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.applestore.applestore.domain.Cart;
 import com.applestore.applestore.domain.Product;
+import com.applestore.applestore.domain.User;
 import com.applestore.applestore.service.ProductService;
 import com.applestore.applestore.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class ItemController {
@@ -57,5 +60,19 @@ public class ItemController {
         this.productService.handleAddItemToCart(email, productId);
         return "redirect:/product";
     }
+
+    @PostMapping("/delete-item/{id}")
+    public String postMethodName(@PathVariable("id") long id,HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long itemId=id;
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        Cart cart = this.productService.handleFindCartByUser(user);
+        
+
+        
+        return "redirect:/cart";
+    }
+    
 
 }
