@@ -1,5 +1,6 @@
 package com.applestore.applestore.controller.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,8 @@ import com.applestore.applestore.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomePageClient {
@@ -33,7 +36,7 @@ public class HomePageClient {
     private final CartRepository cartRepository;
 
     public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository,CartRepository cartRepository) {
+            RoleRepository roleRepository, CartRepository cartRepository) {
         this.productService = productService;
         this.userService = userService;
         this.roleRepository = roleRepository;
@@ -89,21 +92,56 @@ public class HomePageClient {
     }
 
     @GetMapping("/cart")
-    public String getCartPage(Model model,HttpServletRequest request) {
+    public String getCartPage(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         String email = (String) session.getAttribute("email");
         User user = this.userService.handleFindByEmail(email);
-        Cart cart= this.productService.handleFindCartByUser(user);
-        List<CartItem> items =this.productService.handleFindListItemByCart(cart);
-        long totalPrice=0;
-        for (CartItem cartItem : items) {
-            totalPrice+= cartItem.getQuantity() * cartItem.getProduct().getPrice();
+        Cart cart = this.productService.handleFindCartByUser(user);
+        List<CartItem> cartItems = cart == null ? new ArrayList<CartItem>() : cart.getCartItems();
+        long totalPrice = 0;
+        for (CartItem cartItem : cartItems) {
+            totalPrice += cartItem.getQuantity() * cartItem.getProduct().getPrice();
         }
-        model.addAttribute("items", items);
+        model.addAttribute("cart", cart);
+        model.addAttribute("cartItems", cartItems);
         model.addAttribute("totalPrice", totalPrice);
-
-   
         return "client/product/cart";
+    }
+
+    @PostMapping("/confirm-checkout")
+    public String getConfirmCheckoutPage(Model model, HttpServletRequest request, @ModelAttribute("cart") Cart cart) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        model.addAttribute("user", user);
+        List<CartItem> items = cart.getCartItems();
+        this.productService.handleUpdateCartQuantity(items);
+        List<CartItem> cartItems = this.productService
+                .handleFindListItemByCart(this.productService.handleFindCartByUser(user));
+        model.addAttribute("cartItems", cartItems);
+        long totalPrice = 0;
+        for (CartItem cartItem : cartItems) {
+            totalPrice += cartItem.getQuantity() * cartItem.getProduct().getPrice();
+        }
+        model.addAttribute("totalPrice", totalPrice);
+        return "client/product/confirm-checkout";
+    }
+
+    @PostMapping("/place-order")
+    public String getPlaceOrderPage(Model model, @RequestParam("name") String name, @RequestParam("phone") String phone,
+            @RequestParam("address") String address, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+
+        this.productService.handlePlaceOrder(session, user, name, phone, address);
+
+        return "redirect:/thank";
+    }
+
+    @GetMapping("/thank")
+    public String getThankPage(Model model) {
+        return "client/product/thanks";
     }
 
 }

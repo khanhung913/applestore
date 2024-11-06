@@ -24,7 +24,7 @@
                                         <i class="fa fa-shopping-bag fa-2x"></i>
                                         <span
                                             class="cartTotal position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1"
-                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.totalProduct}</span>
+                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.totalCartItem}</span>
                                     </a>
                                     <div class="dropdown my-auto">
                                         <a href="#" class="dropdown" role="button" id="dropdownMenuLink"

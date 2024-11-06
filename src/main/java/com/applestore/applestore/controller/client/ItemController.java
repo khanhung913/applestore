@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.applestore.applestore.domain.Cart;
+import com.applestore.applestore.domain.CartItem;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
 import com.applestore.applestore.service.ProductService;
@@ -16,7 +19,6 @@ import com.applestore.applestore.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-
 
 @Controller
 public class ItemController {
@@ -51,28 +53,49 @@ public class ItemController {
         return "client/product/productlist";
     }
 
-    @PostMapping("/addItemToCart/{id}")
-    public String addItemToCart(@PathVariable long id, Model model, HttpServletRequest request) {
+    @PostMapping("/addItemToCartFromProductPage/{id}")
+    public String addItemToCartFromProductPage(@PathVariable long id, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         long productId = id;
+        long quantity = 1;
         String email = (String) session.getAttribute("email");
-
-        this.productService.handleAddItemToCart(email, productId);
+        this.productService.handleAddItemToCart(email, productId, session, quantity);
         return "redirect:/product";
     }
 
-    @PostMapping("/delete-item/{id}")
-    public String postMethodName(@PathVariable("id") long id,HttpServletRequest request) {
+    @PostMapping("/addItemToCartFromHomePage/{id}")
+    public String addItemToCartFromHomePage(@PathVariable long id, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        long itemId=id;
+        long productId = id;
+        long quantity = 1;
+        String email = (String) session.getAttribute("email");
+        this.productService.handleAddItemToCart(email, productId, session, quantity);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addItemToCartFromDetailPage/{id}")
+    public String addItemToCartFromDetailPage(@PathVariable("id") long id,
+            @RequestParam("product-quantity") long quantity,
+            Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long productId = id;
+        long productQuantity = quantity;
+        String email = (String) session.getAttribute("email");
+        this.productService.handleAddItemToCart(email, productId, session, productQuantity);
+        return "redirect:/product/{id}";
+    }
+
+    @PostMapping("/delete-item/{id}")
+    public String postMethodName(@PathVariable("id") long id, HttpServletRequest request,
+            @ModelAttribute("cart") Cart cart) {
+        List<CartItem> items = cart.getCartItems();
+        this.productService.handleUpdateCartQuantity(items);
+        HttpSession session = request.getSession(false);
         String email = (String) session.getAttribute("email");
         User user = this.userService.handleFindByEmail(email);
-        Cart cart = this.productService.handleFindCartByUser(user);
-        
-
-        
+        Cart deleteCart = this.productService.handleFindCartByUser(user);
+        this.productService.handleDeleteItem(id, deleteCart, session);
         return "redirect:/cart";
     }
-    
 
 }

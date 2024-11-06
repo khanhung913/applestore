@@ -117,10 +117,19 @@
                                                                     </p>
                                                                     <div
                                                                         class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                                        <a href="#"
-                                                                            class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                            カートに入れる</a>
+                                                                        <form
+                                                                            action="/addItemToCartFromHomePage/${iphone.id}"
+                                                                            method="post">
+                                                                            <input type="hidden"
+                                                                                name="${_csrf.parameterName}"
+                                                                                value="${_csrf.token}" />
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                                カートに入れる
+
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -159,10 +168,19 @@
                                                                     </p>
                                                                     <div
                                                                         class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                                        <a href="#"
-                                                                            class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                            カートに入れる</a>
+                                                                        <form
+                                                                            action="/addItemToCartFromHomePage/${mac.id}"
+                                                                            method="post">
+                                                                            <input type="hidden"
+                                                                                name="${_csrf.parameterName}"
+                                                                                value="${_csrf.token}" />
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                                カートに入れる
+
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -201,10 +219,19 @@
                                                                     </p>
                                                                     <div
                                                                         class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                                        <a href="#"
-                                                                            class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                            カートに入れる</a>
+                                                                        <form
+                                                                            action="/addItemToCartFromHomePage/${applewatch.id}"
+                                                                            method="post">
+                                                                            <input type="hidden"
+                                                                                name="${_csrf.parameterName}"
+                                                                                value="${_csrf.token}" />
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                                カートに入れる
+
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -243,10 +270,18 @@
                                                                     </p>
                                                                     <div
                                                                         class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                                        <a href="#"
-                                                                            class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                            カートに入れる</a>
+                                                                        <form
+                                                                            action="/addItemToCartFromHomePage/${airpods.id}"
+                                                                            method="post">
+                                                                            <input type="hidden"
+                                                                                name="${_csrf.parameterName}"
+                                                                                value="${_csrf.token}" />
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                                カートに入れる
+                                                                            </button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
