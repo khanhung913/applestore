@@ -35,7 +35,7 @@
                                             labelledby="dropdownMenuLink">
                                             <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
                                                 <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
-                                                    src="/image/avatar/${sessionScope.avatar}" />
+                                                    src="/client/img/avatar/${sessionScope.avatar}" />
                                                 <div class="text-center my-3 text-primary">
                                                     ${sessionScope.lastName}
                                                 </div>

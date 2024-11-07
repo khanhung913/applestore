@@ -22,7 +22,7 @@ public class UploadService {
         String finalName = "";
         try {
             byte[] bytes = file.getBytes();
-            String rootPath = this.servletContext.getRealPath("/resources/image");
+            String rootPath = this.servletContext.getRealPath("/resources/client/img");
             System.out.println(rootPath);
             File dir = new File(rootPath + File.separator + targetFolder);
             if (!dir.exists())
