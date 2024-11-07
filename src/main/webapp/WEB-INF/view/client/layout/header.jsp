@@ -47,10 +47,14 @@
                                                     アカウント管理</a>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap my-3">
-                                                <a href="#"
-                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
-                                                        class="fas fa-shopping-cart me-2 my-1"></i>
-                                                    注文履歴</a>
+                                                <form action="/order-history" method="post">
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                        value="${_csrf.token}" />
+                                                    <button
+                                                        class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                            class="fas fa-shopping-cart me-2 my-1"></i>
+                                                        注文履歴</button>
+                                                </form>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider">

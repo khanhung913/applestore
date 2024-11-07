@@ -50,7 +50,7 @@
                     <!-- Single Product Start -->
 
                     <div class="container-fluid py-5">
-                        <div class="container py-5">
+                        <div class="container py-5 col-md-9">
                             <c:if test="${not empty cartItems}">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -135,7 +135,7 @@
                                 </div>
 
                                 <div class="row g-4 justify-content-center">
-                                    <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                                    <div class="col-sm-10 col-md-7 col-lg-7 col-xl-6">
                                         <div class="bg-light rounded">
                                             <div class="p-4">
                                                 <h1 class="display-6 mb-4 text-center">合計</span></h1>

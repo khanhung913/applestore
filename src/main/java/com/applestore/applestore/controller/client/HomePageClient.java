@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.applestore.applestore.domain.Cart;
 import com.applestore.applestore.domain.CartItem;
+import com.applestore.applestore.domain.Order;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
@@ -142,6 +143,16 @@ public class HomePageClient {
     @GetMapping("/thank")
     public String getThankPage(Model model) {
         return "client/product/thanks";
+    }
+
+    @PostMapping("/order-history")
+    public String getOrderHistoryPage(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        List<Order> orderList = this.productService.handleFindAllCartByUser(user);
+        model.addAttribute("orderList", orderList);
+        return "client/product/orderhistory";
     }
 
 }

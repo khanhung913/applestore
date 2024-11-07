@@ -21,7 +21,7 @@
                                     <div class="carousel-item active rounded">
                                         <img src="/client/img/banner-iphone.jpg"
                                             class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                        <a href="" class="btn px-4 py-2 text-white rounded">iPhone</a>
+                                        <a href="#" class="btn px-4 py-2 text-white rounded">iPhone</a>
                                     </div>
                                     <div class="carousel-item rounded">
                                         <img src="/client/img/banner-mac.jpg" class="img-fluid w-100 h-100 rounded"

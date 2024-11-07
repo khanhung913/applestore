@@ -155,4 +155,8 @@ public class ProductService {
     public List<Order> handlePrintAllOrder() {
         return this.orderRepository.findAll();
     }
+
+    public List<Order> handleFindAllCartByUser(User user){
+        return this.orderRepository.findByUsers(user);
+    }
 }

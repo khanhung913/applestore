@@ -49,8 +49,7 @@
 
                     <!-- Single Product Start -->
 
-                    <div class="container mt-5">
-
+                    <div class="container mt-5 col-md-10">
                         <div class="row">
                             <div class="col-md-5 order-md-2 mb-4 mt-5">
                                 <h4 class="my-4 text-center">カート</h4>
@@ -146,7 +145,8 @@
                                     </div>
                                     <hr class="mb-4">
                                     <div class="d-flex justify-content-center"><button
-                                            class="btn btn-primary btn-lg btn-block" type="submit">注文を確定する</button></div>
+                                            class="btn btn-primary btn-lg btn-block" type="submit">注文を確定する</button>
+                                    </div>
                                 </form:form>
                             </div>
                         </div>
