@@ -117,7 +117,7 @@
                                                 <div class="tab-pane active" id="nav-about" role="tabpanel"
                                                     aria-labelledby="nav-about-tab">
                                                     <p>${product.productDesc}</p>
-                                                    <div class="px-2">
+                                                    <!-- <div class="px-2">
                                                         <div class="row g-4">
                                                             <div class="col-6">
                                                                 <div
@@ -167,7 +167,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
