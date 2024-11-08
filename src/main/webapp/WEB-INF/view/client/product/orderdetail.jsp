@@ -69,7 +69,7 @@
                                             <tr>
                                                 <th scope="row">
                                                     <div class="d-flex align-items-center">
-                                                        <img src="client/img/ProductImage/${item.product.image}"
+                                                        <img src="/client/img/ProductImage/${item.product.image}"
                                                             style="width: 80px; height: auto;" alt="">
                                                     </div>
                                                 </th>
