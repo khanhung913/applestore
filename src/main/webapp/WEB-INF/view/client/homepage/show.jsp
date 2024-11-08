@@ -123,12 +123,10 @@
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <button
+                                                                            <a href="/product/${iphone.id}"
                                                                                 class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                                     class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                カートに入れる
-
-                                                                            </button>
+                                                                                詳しく見る</a>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -174,12 +172,10 @@
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <button
+                                                                            <a href="/product/${mac.id}"
                                                                                 class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                                     class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                カートに入れる
-
-                                                                            </button>
+                                                                                詳しく見る</a>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -225,12 +221,10 @@
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <button
+                                                                            <a href="/product/${applewatch.id}"
                                                                                 class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                                     class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                カートに入れる
-
-                                                                            </button>
+                                                                                詳しく見る</a>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -276,11 +270,10 @@
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <button
+                                                                            <a href="/product/${airpods.id}"
                                                                                 class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
                                                                                     class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                カートに入れる
-                                                                            </button>
+                                                                                詳しく見る</a>
                                                                         </form>
                                                                     </div>
                                                                 </div>

@@ -41,7 +41,7 @@
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap">
-                                                <form action="" method="post">
+                                                <form action="#">
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
                                                     <button
