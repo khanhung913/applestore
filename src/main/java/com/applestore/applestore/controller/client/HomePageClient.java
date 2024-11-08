@@ -9,11 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.applestore.applestore.domain.Cart;
 import com.applestore.applestore.domain.CartItem;
 import com.applestore.applestore.domain.Order;
+import com.applestore.applestore.domain.OrderDetail;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
@@ -153,6 +155,15 @@ public class HomePageClient {
         List<Order> orderList = this.productService.handleFindAllCartByUser(user);
         model.addAttribute("orderList", orderList);
         return "client/product/orderhistory";
+    }
+
+    @GetMapping("/order-detail/{id}")
+    public String getMethodName(Model model, @PathVariable("id") long id) {
+        Order order = this.productService.handleFindOrderById(id);
+        List<OrderDetail> orderDetail = this.productService.handleFindAllOrderDetailByOrder(order);
+        model.addAttribute("orderDetail", orderDetail);
+        model.addAttribute("order", order);
+        return "client/product/orderdetail";
     }
 
 }

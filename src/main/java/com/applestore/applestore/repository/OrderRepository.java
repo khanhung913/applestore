@@ -8,8 +8,9 @@ import com.applestore.applestore.domain.User;
 
 import java.util.List;
 
-
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-List<Order> findByUsers(User users);
+    List<Order> findByUsers(User users);
+
+    Order findById(long id);
 }

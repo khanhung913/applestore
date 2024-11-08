@@ -11,7 +11,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                     <meta name="description" content="" />
                     <meta name="author" content="" />
-                    <title>Order History - Apple Store</title>
+                    <title>Order Detail - Apple Store</title>
                     <!-- Google Web Fonts -->
                     <link rel="preconnect" href="https://fonts.googleapis.com">
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,60 +51,56 @@
 
                     <div class="container-fluid py-5">
                         <div class="container py-5 col-md-8">
-                            <c:if test="${not empty orderList}">
-                                <h1 class="text-center mb-3">注文履歴</h1>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">注文番号</th>
-                                                <th scope="col">荷受人</th>
-                                                <th scope="col">請求額</th>
-                                                <th scope="col">状態</th>
-                                                <th scope="col">アクション</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="item" items="${orderList}">
+                            <h1 class="text-center mb-3">注文内容</h1>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">商品</th>
+                                            <th scope="col">商品名</th>
+                                            <th scope="col">価格</th>
+                                            <th scope="col">数量</th>
+                                            <th scope="col">小計</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="item" items="${orderDetail}">
 
-                                                <tr>
-                                                    <td>
-                                                        <p class="mb-0 mt-4">${item.id}</p>
-                                                    </td>
-                                                    <td>
-                                                        <p class="mb-0 mt-4">${item.receiver_name}</p>
-                                                    </td>
-                                                    <td>
-                                                        <p class="mb-0 mt-4">
-                                                            (税込)
-                                                            <fmt:formatNumber type="number" pattern=""
-                                                                value="${item.totalPrice}" />
-                                                        </p>
-                                                    </td>
-                                                    <td>
-                                                        <p class="mb-0 mt-4">${item.status}</p>
-                                                    </td>
-                                                    <td>
-                                                        <a href="/order-detail/${item.id}" class="btn btn-success mx-2 mt-3">詳しく</a>
-                                                        <a href="#" class="btn btn-danger mx-2 mt-3">キャンセル</a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </c:if>
-                            <c:if test="${!not empty orderList}">
-                                <div class="card-body cart">
-                                    <div class="col-sm-12 empty-cart-cls text-center">
-                                        <img src="client/img/orderempty.png" width="300" height="auto"
-                                            class="img-fluid mb-4 mr-3">
-                                        <h3>注文履歴が空いている</h3>
-                                        <a href="/product" class="btn btn-primary cart-btn-transform my-5"
-                                            data-abc="true">ショップに戻る</a>
-                                    </div>
-                                </div>
-                            </c:if>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="client/img/ProductImage/${item.product.image}"
+                                                            style="width: 80px; height: auto;" alt="">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <p class="mb-0 mt-4">${item.product.name}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="mb-0 mt-4">
+                                                        (税込)
+                                                        <fmt:formatNumber type="number" pattern=""
+                                                            value="${item.product.price}" />
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="mb-0 mt-4">${item.orderQuantity}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="mb-0 mt-4" data-cart-detail-id="${item.id}">
+                                                        (税込)
+                                                        <fmt:formatNumber type="number" pattern=""
+                                                            value="${item.orderQuantity*item.product.price}" />
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h2 class="text-end mx-3">請求額:
+                                <fmt:formatNumber type="number" pattern="" value="${order.totalPrice}" />
+                            </h2>
                         </div>
                     </div>
 

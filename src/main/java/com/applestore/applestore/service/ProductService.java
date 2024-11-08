@@ -156,7 +156,15 @@ public class ProductService {
         return this.orderRepository.findAll();
     }
 
-    public List<Order> handleFindAllCartByUser(User user){
+    public List<Order> handleFindAllCartByUser(User user) {
         return this.orderRepository.findByUsers(user);
+    }
+
+    public Order handleFindOrderById(long id) {
+        return this.orderRepository.findById(id);
+    }
+
+    public List<OrderDetail> handleFindAllOrderDetailByOrder(Order order) {
+        return this.orderDetailRepository.findByOrder(order);
     }
 }

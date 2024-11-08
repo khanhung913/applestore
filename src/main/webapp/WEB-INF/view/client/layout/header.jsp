@@ -41,17 +41,21 @@
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap">
-                                                <a href="#"
-                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
-                                                        class="fas fa-user-circle me-2 my-1"></i>
-                                                    アカウント管理</a>
-                                            </li>
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                        value="${_csrf.token}" />
+                                                    <button
+                                                        class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                            class="fas fa-user-circle me-2 my-1"></i>
+                                                        アカウント管理</button>
+                                                </form>
+
                                             <li class="d-flex justify-content-center flex-lg-wrap my-3">
                                                 <form action="/order-history" method="post">
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
                                                     <button
-                                                        class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                        class="btn btn-primary border border-secondary rounded-pill px-4 text-primary dropdown-item d-flex justify-content-center"><i
                                                             class="fas fa-shopping-cart me-2 my-1"></i>
                                                         注文履歴</button>
                                                 </form>
