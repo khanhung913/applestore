@@ -75,20 +75,17 @@
                                                             <fmt:formatNumber type="number" pattern=""
                                                                 value="${product.price}" />
                                                         </p>
-                                                        <div class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                            <!-- <form action="/addItemToCartFromProductPage/${product.id}"
+                                                        <div class="d-flex justify-content-between flex-lg-wrap mt-5">
+                                                            <form action="/addItemToCartFromProductPage/${product.id}"
                                                                 method="post">
                                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                                     value="${_csrf.token}" />
                                                                 <button
-                                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                    詳しく見る
+                                                                    class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
                                                                 </button>
-                                                            </form> -->
+                                                            </form>
                                                             <a href="/product/${product.id}"
-                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">
                                                                 詳しく見る</a>
                                                         </div>
                                                     </div>

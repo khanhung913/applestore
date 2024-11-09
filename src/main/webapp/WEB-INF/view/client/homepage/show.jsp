@@ -116,18 +116,20 @@
                                                                             value="${iphone.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
                                                                         <form
                                                                             action="/addItemToCartFromHomePage/${iphone.id}"
                                                                             method="post">
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <a href="/product/${iphone.id}"
-                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                詳しく見る</a>
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                            </button>
                                                                         </form>
+                                                                        <a href="/product/${iphone.id}"
+                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
+                                                                            詳しく見る</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -165,18 +167,20 @@
                                                                             value="${mac.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
                                                                         <form
                                                                             action="/addItemToCartFromHomePage/${mac.id}"
                                                                             method="post">
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <a href="/product/${mac.id}"
-                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                詳しく見る</a>
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                            </button>
                                                                         </form>
+                                                                        <a href="/product/${mac.id}"
+                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
+                                                                            詳しく見る</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -214,18 +218,20 @@
                                                                             value="${applewatch.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
                                                                         <form
                                                                             action="/addItemToCartFromHomePage/${applewatch.id}"
                                                                             method="post">
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <a href="/product/${applewatch.id}"
-                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                詳しく見る</a>
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                            </button>
                                                                         </form>
+                                                                        <a href="/product/${applewatch.id}"
+                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
+                                                                            詳しく見る</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -263,18 +269,20 @@
                                                                             value="${airpods.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
                                                                         <form
                                                                             action="/addItemToCartFromHomePage/${airpods.id}"
                                                                             method="post">
                                                                             <input type="hidden"
                                                                                 name="${_csrf.parameterName}"
                                                                                 value="${_csrf.token}" />
-                                                                            <a href="/product/${airpods.id}"
-                                                                                class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                                                詳しく見る</a>
+                                                                            <button
+                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                            </button>
                                                                         </form>
+                                                                        <a href="/product/${airpods.id}"
+                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
+                                                                            詳しく見る</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
