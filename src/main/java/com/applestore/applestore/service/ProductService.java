@@ -15,23 +15,23 @@ import com.applestore.applestore.repository.CartItemRepository;
 import com.applestore.applestore.repository.CartRepository;
 import com.applestore.applestore.repository.OrderDetailRepository;
 import com.applestore.applestore.repository.OrderRepository;
-import com.applestore.applestore.repository.ProductRepositoty;
+import com.applestore.applestore.repository.ProductRepository;
 
 import jakarta.servlet.http.HttpSession;
 
 @Service
 public class ProductService {
-    private final ProductRepositoty productRepositoty;
+    private final ProductRepository ProductRepository;
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
     private final UserService userService;
     private final OrderRepository orderRepository;
     private final OrderDetailRepository orderDetailRepository;
 
-    public ProductService(ProductRepositoty productRepositoty, CartRepository cartRepository,
+    public ProductService(ProductRepository ProductRepository, CartRepository cartRepository,
             CartItemRepository cartItemRepository, UserService userService, OrderRepository orderRepository,
             OrderDetailRepository orderDetailRepository) {
-        this.productRepositoty = productRepositoty;
+        this.ProductRepository = ProductRepository;
         this.cartItemRepository = cartItemRepository;
         this.cartRepository = cartRepository;
         this.userService = userService;
@@ -40,19 +40,19 @@ public class ProductService {
     }
 
     public void handleSaveProduct(Product product) {
-        this.productRepositoty.save(product);
+        this.ProductRepository.save(product);
     }
 
     public List<Product> handlePrintAllProducts() {
-        return this.productRepositoty.findAll();
+        return this.ProductRepository.findAll();
     }
 
     public Product handleFindById(long id) {
-        return this.productRepositoty.findById(id);
+        return this.ProductRepository.findById(id);
     }
 
     public List<Product> handlePrintByTarget(String target) {
-        return this.productRepositoty.findByTarget(target);
+        return this.ProductRepository.findByTarget(target);
     }
 
     public void handleAddItemToCart(String email, long productId, HttpSession session, long quantity) {
@@ -65,7 +65,7 @@ public class ProductService {
                 newCart.setSum(0);
                 this.cartRepository.save(newCart);
             }
-            Product product = this.productRepositoty.findById(productId);
+            Product product = this.ProductRepository.findById(productId);
             CartItem item = this.cartItemRepository.findByCartAndProduct(cart, product);
             cart = this.cartRepository.findByUser(user);
             if (item == null) {
