@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-            <!-- Tastimonial Start -->
             <div class="container-fluid testimonial py-5">
                 <div class="container py-5">
                     <div class="testimonial-header text-center">
@@ -97,4 +96,3 @@
                     </div>
                 </div>
             </div>
-            <!-- Tastimonial End -->

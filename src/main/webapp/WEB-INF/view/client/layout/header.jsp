@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-            <!-- Navbar start -->
             <div class="container-fluid fixed-top d-flex justify-content-center">
                 <div class="container px-0 mx-5">
                     <nav class="navbar navbar-light bg-white navbar-expand-xl mx-5">
@@ -24,7 +23,8 @@
                                         <i class="fa fa-shopping-bag fa-2x"></i>
                                         <span
                                             class="cartTotal position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1"
-                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.totalCartItem}</span>
+                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;"
+                                            id="sumCart">${sessionScope.sum}</span>
                                     </a>
                                     <div class="dropdown my-auto">
                                         <a href="#" class="dropdown" role="button" id="dropdownMenuLink"
@@ -78,7 +78,7 @@
                                     </div>
                                 </c:if>
                                 <c:if test="${empty pageContext.request.userPrincipal}">
-                                    <a href="/login" class="position-relative me-4 my-auto">
+                                    <a href="/login" class="a-login position-relative me-4 my-auto">
                                         <i class="fas fa-sign-in-alt fa-2x"></i>
                                     </a>
                                 </c:if>

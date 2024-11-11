@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-            <!-- Featurs Section Start -->
             <div class="container-fluid featurs py-5">
                 <div class="container py-5">
                     <div class="row g-4">
@@ -53,4 +52,3 @@
                     </div>
                 </div>
             </div>
-            <!-- Featurs Section End -->

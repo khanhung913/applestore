@@ -47,8 +47,6 @@
 
                     <jsp:include page="../layout/header.jsp" />
 
-                    <!-- Single Product Start -->
-
                     <div class="container-fluid py-5">
                         <div class="container py-5 col-md-8">
                             <h1 class="text-center mb-3">注文内容</h1>
@@ -103,10 +101,6 @@
                             </h2>
                         </div>
                     </div>
-
-
-                    <!-- Single Product End -->
-
 
                     <!-- JavaScript Libraries -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

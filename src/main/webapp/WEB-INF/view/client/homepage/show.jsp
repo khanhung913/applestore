@@ -35,6 +35,14 @@
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
                     <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
+
+                    <meta name="_csrf" content="${_csrf.token}" />
+                    <!-- default header name is X-CSRF-TOKEN -->
+                    <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+                        rel="stylesheet">
+
                 </head>
 
                 <body>
@@ -50,7 +58,6 @@
 
 
 
-                    <!-- Fruits Shop Start-->
                     <div class="container-fluid fruite ">
                         <div class="container py-5">
                             <div class="tab-class text-center">
@@ -116,20 +123,10 @@
                                                                             value="${iphone.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
-                                                                        <form
-                                                                            action="/addItemToCartFromHomePage/${iphone.id}"
-                                                                            method="post">
-                                                                            <input type="hidden"
-                                                                                name="${_csrf.parameterName}"
-                                                                                value="${_csrf.token}" />
-                                                                            <button
-                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
-                                                                            </button>
-                                                                        </form>
-                                                                        <a href="/product/${iphone.id}"
-                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
-                                                                            詳しく見る</a>
+                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        <button data-product-id="${iphone.id}"
+                                                                            class="btnAddToCartHomePage btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -167,20 +164,10 @@
                                                                             value="${mac.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
-                                                                        <form
-                                                                            action="/addItemToCartFromHomePage/${mac.id}"
-                                                                            method="post">
-                                                                            <input type="hidden"
-                                                                                name="${_csrf.parameterName}"
-                                                                                value="${_csrf.token}" />
-                                                                            <button
-                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
-                                                                            </button>
-                                                                        </form>
-                                                                        <a href="/product/${mac.id}"
-                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
-                                                                            詳しく見る</a>
+                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        <button data-product-id="${mac.id}"
+                                                                            class="btnAddToCartHomePage btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -218,20 +205,10 @@
                                                                             value="${applewatch.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
-                                                                        <form
-                                                                            action="/addItemToCartFromHomePage/${applewatch.id}"
-                                                                            method="post">
-                                                                            <input type="hidden"
-                                                                                name="${_csrf.parameterName}"
-                                                                                value="${_csrf.token}" />
-                                                                            <button
-                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
-                                                                            </button>
-                                                                        </form>
-                                                                        <a href="/product/${applewatch.id}"
-                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
-                                                                            詳しく見る</a>
+                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        <button data-product-id="${applewatch.id}"
+                                                                            class="btnAddToCartHomePage btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -269,20 +246,10 @@
                                                                             value="${airpods.price}" />
                                                                     </p>
                                                                     <div
-                                                                        class="d-flex justify-content-between flex-lg-wrap mt-5">
-                                                                        <form
-                                                                            action="/addItemToCartFromHomePage/${airpods.id}"
-                                                                            method="post">
-                                                                            <input type="hidden"
-                                                                                name="${_csrf.parameterName}"
-                                                                                value="${_csrf.token}" />
-                                                                            <button
-                                                                                class="btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
-                                                                            </button>
-                                                                        </form>
-                                                                        <a href="/product/${airpods.id}"
-                                                                            class="btn btn-primary border border-secondary rounded-pill text-primary">
-                                                                            詳しく見る</a>
+                                                                        class="d-flex justify-content-center flex-lg-wrap mt-5">
+                                                                        <button data-product-id="${airpods.id}"
+                                                                            class="btnAddToCartHomePage btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -296,7 +263,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Fruits Shop End-->
                     <jsp:include page="../layout/featur.jsp" />
                     <jsp:include page="../layout/comment.jsp" />
                     <jsp:include page="../layout/footer.jsp" />
@@ -308,6 +274,8 @@
                     <script src="/client/lib/waypoints/waypoints.min.js"></script>
                     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
                     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 
                     <!-- Template Javascript -->
                     <script src="/client/js/main.js"></script>

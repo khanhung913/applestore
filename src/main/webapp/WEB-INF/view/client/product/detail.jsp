@@ -35,19 +35,24 @@
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
                     <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
+
+                    <meta name="_csrf" content="${_csrf.token}" />
+                    <!-- default header name is X-CSRF-TOKEN -->
+                    <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+                        rel="stylesheet">
+
                 </head>
 
                 <body>
-                    <!-- Spinner Start -->
                     <div id="spinner"
                         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                         <div class="spinner-grow text-primary" role="status"></div>
                     </div>
-                    <!-- Spinner End -->
 
                     <jsp:include page="../layout/header.jsp" />
 
-                    <!-- Single Product Start -->
                     <div class="container-fluid py-5 mt-5">
                         <div class="container py-5">
                             <div class="row g-4 mb-5">
@@ -89,20 +94,22 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <form action="/addItemToCartFromDetailPage/${product.id}" method="post">
+                                            <!-- <form action="/addItemToCartFromDetailPage/${product.id}" method="post">
                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                     value="${_csrf.token}" />
                                                 <div style="display: none;">
-                                                    <label for="phone">電話番号：</label>
+                                                    <label for="product-quantity">Quantity:</label>
                                                     <input type="text" class="form-control" id="product-quantity"
                                                         name="product-quantity" value="1">
-                                                </div>
-                                                <button
-                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary my-1"></i>
-                                                    カートに入れる
-                                                </button>
-                                            </form>
+                                                </div> -->
+                                            <input class="form-control d-none" type="text" name="quantity"
+                                                id="product-quantity" value="1" />
+                                            <button data-product-id="${product.id}"
+                                                class="btnAddToCartDetailPage btn btn-primary border border-secondary rounded-pill px-3 text-primary"><i
+                                                    class="fa fa-shopping-bag me-2 text-primary my-1"></i>
+                                                カートに入れる
+                                            </button>
+                                            <!-- </form> -->
                                         </div>
                                         <div class="col-lg-12">
                                             <nav>
@@ -117,57 +124,6 @@
                                                 <div class="tab-pane active" id="nav-about" role="tabpanel"
                                                     aria-labelledby="nav-about-tab">
                                                     <p>${product.productDesc}</p>
-                                                    <!-- <div class="px-2">
-                                                        <div class="row g-4">
-                                                            <div class="col-6">
-                                                                <div
-                                                                    class="row bg-light align-items-center text-center justify-content-center py-2">
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Weight</p>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">1 kg</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="row text-center align-items-center justify-content-center py-2">
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Country of Origin</p>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Agro Farm</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="row bg-light text-center align-items-center justify-content-center py-2">
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Quality</p>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Organic</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="row text-center align-items-center justify-content-center py-2">
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Сheck</p>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Healthy</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="row bg-light text-center align-items-center justify-content-center py-2">
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">Min Weight</p>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <p class="mb-0">250 Kg</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -230,6 +186,8 @@
                     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
                     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
 
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
                     <!-- Template Javascript -->
                     <script src="/client/js/main.js"></script>
                 </body>

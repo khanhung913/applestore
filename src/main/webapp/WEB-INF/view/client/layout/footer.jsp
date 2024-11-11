@@ -1,15 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-            <!-- Footer Start -->
             <div class="container-fluid bg-primary text-white-50 footer">
                 <div class="container py-5">
                     <div class="pb-4 mb-4" style="border-bottom: 1px solid #fff ;">
                         <div class="row g-4">
                             <div class="col-lg-6">
                                 <a href="#" class="d-flex">
-                                    <!-- <img src=" /client/img/Apple-Logo.png" class="bg-white" width="100px" alt=""> -->
-                                    <h1 class="text-light mt-2 mb-0">Apple Store</h1>
+                                    <h1 class="text-light mb-0"><i class="fab fa-apple mx-3"></i>Apple Store</h1>
                                 </a>
                             </div>
                             <div class="col-lg-6">
@@ -53,9 +51,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Footer End -->
 
-            <!-- Copyright Start -->
             <div class="container-fluid copyright bg-primary py-3">
                 <div class="container">
                     <div class="row">
@@ -68,7 +64,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Copyright End -->
             <!-- Back to Top -->
             <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i
                     class="fa fa-arrow-up"></i></a>

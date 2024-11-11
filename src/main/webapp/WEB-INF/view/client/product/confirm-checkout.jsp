@@ -47,7 +47,6 @@
 
                     <jsp:include page="../layout/header.jsp" />
 
-                    <!-- Single Product Start -->
 
                     <div class="container mt-5 col-md-10">
                         <div class="row">
@@ -151,10 +150,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Single Product End -->
-
 
                     <!-- JavaScript Libraries -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

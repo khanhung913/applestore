@@ -35,6 +35,13 @@
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
                     <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
+
+                    <meta name="_csrf" content="${_csrf.token}" />
+                    <!-- default header name is X-CSRF-TOKEN -->
+                    <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+                        rel="stylesheet">
                 </head>
 
                 <body>
@@ -47,7 +54,6 @@
 
                     <jsp:include page="../layout/header.jsp" />
 
-                    <!-- Single Product Start -->
 
                     <div class="container-fluid py-5">
                         <div class="container py-5 col-md-9">
@@ -107,10 +113,6 @@
                                                         </div>
                                                     </td>
                                                     <td>
-
-                                                        <!-- <c:set var="price">
-                                                            ${item.product.price}
-                                                        </c:set> -->
                                                         <p class="mb-0 mt-4" data-cart-detail-id="${item.id}">
                                                             (税込)
                                                             <fmt:formatNumber type="number" pattern=""
@@ -208,7 +210,6 @@
                     </div>
 
 
-                    <!-- Single Product End -->
 
 
                     <!-- JavaScript Libraries -->
@@ -218,6 +219,8 @@
                     <script src="/client/lib/waypoints/waypoints.min.js"></script>
                     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
                     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 
                     <!-- Template Javascript -->
                     <script src="/client/js/main.js"></script>

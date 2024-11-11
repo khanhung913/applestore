@@ -167,6 +167,7 @@
             priceElement.text("(税込) " + formatCurrency(newPrice.toFixed(2)));
         }
 
+
         //update total cart price
         const totalPriceElement = $(`p[data-cart-total-price]`);
 
@@ -191,6 +192,19 @@
                 $(totalPriceElement[index]).attr("data-cart-total-price", newTotal);
             });
         }
+        //update database before change quantity
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            url: `${window.location.origin}/api/change-quantity`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            type: "POST",
+            data: JSON.stringify({ productId: id, quantity: newVal }),
+            contentType: "application/json"
+        });
     });
 
     function formatCurrency(value) {
@@ -205,6 +219,132 @@
         formatted = formatted.replace(/\./g, ',');
         return formatted;
     }
+    $('.btnAddToCartHomePage').click(function (event) {
+        event.preventDefault();
+
+        if (!isLogin()) {
+            $.toast({
+                heading: '操作エラー',
+                text: 'ロクインしてください。',
+                position: 'top-right',
+                icon: 'error'
+            })
+            return;
+        }
+
+        const productId = $(this).attr('data-product-id');
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            url: `${window.location.origin}/api/add-product-to-cart`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            type: "POST",
+            data: JSON.stringify({ quantity: 1, productId: productId }),
+            contentType: "application/json",
+
+            success: function (response) {
+                const sum = +response;
+                //update cart
+                $("#sumCart").text(sum)
+                //show message
+                $.toast({
+                    heading: '成功！',
+                    text: 'カートに商品を入れました。',
+                    position: 'top-right',
+
+                })
+
+            },
+            error: function (response) {
+                alert("エラー")
+                console.log("error: ", response);
+            }
+
+        });
+    });
+
+    $('.btnAddToCartDetailPage').click(function (event) {
+        event.preventDefault();
+        if (!isLogin()) {
+            $.toast({
+                heading: '操作エラー',
+                text: 'ロクインしてください。',
+                position: 'top-right',
+                icon: 'error'
+            })
+            return;
+        }
+
+        const productId = $(this).attr('data-product-id');
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+        const quantity = $("#product-quantity").val();
+        $.ajax({
+            url: `${window.location.origin}/api/add-product-to-cart`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            type: "POST",
+            data: JSON.stringify({ quantity: quantity, productId: productId }),
+            contentType: "application/json",
+
+            success: function (response) {
+                const sum = +response;
+                //update cart
+                $("#sumCart").text(sum)
+                //show message
+                $.toast({
+                    heading: '成功！',
+                    text: 'カートに商品を入れました。',
+                    position: 'top-right',
+
+                })
+
+            },
+            error: function (response) {
+                alert("エラー")
+                console.log("error: ", response);
+            }
+
+        });
+    });
+
+    function isLogin() {
+        const navElement = $("#navbarCollapse");
+        const childLogin = navElement.find('a.a-login');
+        if (childLogin.length > 0) {
+            return false;
+        }
+        return true;
+    };
+    $('.btnCancelOrder').click(function (event) {
+        event.preventDefault();
+        const itemId = $(this).attr('data-item-id');
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+        const status = document.getElementById(`status${itemId}`)
+        $.ajax({
+            url: `${window.location.origin}/api/cancel-order`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            type: "POST",
+            data: JSON.stringify({ itemId: itemId }),
+            contentType: "application/json",
+            success: function (response) {
+                // $(status).newVal(response);
+                $(status).text("キャンセル")
+            },
+            error: function (response) {
+                alert("エラー")
+                console.log("error: ", response);
+            }
+
+        });
+    });
 
 })(jQuery);
 

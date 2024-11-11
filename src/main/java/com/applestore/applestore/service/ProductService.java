@@ -76,7 +76,7 @@ public class ProductService {
                 this.cartItemRepository.save(cartItem);
                 cart.setSum(cart.getSum() + 1);
                 this.cartRepository.save(cart);
-                session.setAttribute("totalCartItem", cart.getSum());
+                session.setAttribute("sum", cart.getSum());
 
             } else {
                 item.setQuantity(item.getQuantity() + quantity);
@@ -103,12 +103,12 @@ public class ProductService {
             this.cartItemRepository.deleteById(id);
             long sum = cart.getSum() - 1;
             cart.setSum(sum);
-            session.setAttribute("totalCartItem", sum);
+            session.setAttribute("sum", sum);
             this.cartRepository.save(cart);
         } else {
             this.cartItemRepository.deleteById(id);
             this.cartRepository.deleteById(cart.getId());
-            session.setAttribute("totalCartItem", 0);
+            session.setAttribute("sum", 0);
         }
     }
 
@@ -149,7 +149,7 @@ public class ProductService {
             this.cartItemRepository.deleteById(cartItem.getId());
         }
         this.cartRepository.delete(cart);
-        session.setAttribute("totalCartItem", 0);
+        session.setAttribute("sum", 0);
     }
 
     public List<Order> handlePrintAllOrder() {
@@ -166,5 +166,27 @@ public class ProductService {
 
     public List<OrderDetail> handleFindAllOrderDetailByOrder(Order order) {
         return this.orderDetailRepository.findByOrder(order);
+    }
+
+    public void handleSaveOrderBeforeCancel(Order order) {
+        Order newOrder = new Order();
+        newOrder.setId(order.getId());
+        newOrder.setTotalPrice(order.getTotalPrice());
+        newOrder.setUsers(order.getUsers());
+        newOrder.setReceiver_name(order.getReceiver_name());
+        newOrder.setReceiver_address(order.getReceiver_address());
+        newOrder.setReceiver_phone(order.getReceiver_phone());
+        newOrder.setStatus("キャンセル");
+        this.orderRepository.save(newOrder);
+    }
+
+    public void handleChangeQuantity(long productId, long quantity) {
+        Optional<CartItem> cartItem = this.cartItemRepository.findById(productId);
+        if (cartItem.isPresent()) {
+            CartItem newCartItem = cartItem.get();
+            newCartItem.setQuantity(quantity);
+            this.cartItemRepository.save(newCartItem);
+        }
+
     }
 }

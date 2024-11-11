@@ -1,19 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-            <!-- Hero Start -->
             <div class="container-fluid py-5 hero-header">
                 <div class="container py-5">
                     <div class="row g-5 align-items-center">
                         <div class="col-md-12 col-lg-7">
                             <h1 class="mb-5 mt-5 display-6 text-light">Apple製品と出会うための <br />最高の場所です。</h1>
-                            <!-- <div class="position-relative mx-auto">
-                                <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill"
-                                    type="number" placeholder="Search">
-                                <button type="submit"
-                                    class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-black h-100"
-                                    style="top: 0; right: 25%;">Submit Now</button>
-                            </div> -->
                         </div>
                         <div class="col-md-12 col-lg-5">
                             <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
@@ -54,4 +46,3 @@
                     </div>
                 </div>
             </div>
-            <!-- Hero End -->

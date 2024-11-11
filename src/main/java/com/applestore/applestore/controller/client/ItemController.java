@@ -89,7 +89,9 @@ public class ItemController {
     public String postMethodName(@PathVariable("id") long id, HttpServletRequest request,
             @ModelAttribute("cart") Cart cart) {
         List<CartItem> items = cart.getCartItems();
-        this.productService.handleUpdateCartQuantity(items);
+        if (items != null) {
+            this.productService.handleUpdateCartQuantity(items);
+        }
         HttpSession session = request.getSession(false);
         String email = (String) session.getAttribute("email");
         User user = this.userService.handleFindByEmail(email);

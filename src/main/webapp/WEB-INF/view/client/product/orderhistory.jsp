@@ -35,6 +35,12 @@
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
                     <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
+                    <meta name="_csrf" content="${_csrf.token}" />
+                    <!-- default header name is X-CSRF-TOKEN -->
+                    <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+                        rel="stylesheet">
                 </head>
 
                 <body>
@@ -61,7 +67,7 @@
                                                 <th scope="col">荷受人</th>
                                                 <th scope="col">請求額</th>
                                                 <th scope="col">状態</th>
-                                                <th scope="col">アクション</th>
+                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -82,11 +88,13 @@
                                                         </p>
                                                     </td>
                                                     <td>
-                                                        <p class="mb-0 mt-4">${item.status}</p>
+                                                        <p class="mb-0 mt-4" id="status${item.id}">${item.status}</p>
                                                     </td>
                                                     <td>
-                                                        <a href="/order-detail/${item.id}" class="btn btn-success mx-2 mt-3">詳しく</a>
-                                                        <a href="#" class="btn btn-danger mx-2 mt-3">キャンセル</a>
+                                                        <a href="/order-detail/${item.id}"
+                                                            class="btn btn-success mx-2 mt-3">詳しく</a>
+                                                        <button data-item-id="${item.id}"
+                                                            class="btnCancelOrder btn btn-danger mx-2 mt-3">キャンセル</button>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -119,6 +127,8 @@
                     <script src="/client/lib/waypoints/waypoints.min.js"></script>
                     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
                     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 
                     <!-- Template Javascript -->
                     <script src="/client/js/main.js"></script>

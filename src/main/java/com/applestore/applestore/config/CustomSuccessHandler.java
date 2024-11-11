@@ -62,7 +62,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         session.setAttribute("id", user.getId());
         Cart cart = this.productService.handleFindCartByUser(user);
         long sum = (cart == null) ? 0 : cart.getSum();
-        session.setAttribute("totalCartItem", sum);
+        session.setAttribute("sum", sum);
         System.out.println();
     }
 
