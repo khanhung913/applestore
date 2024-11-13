@@ -13,9 +13,9 @@
                         </button>
                         <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="/" class="nav-item nav-link active mx-5 fs-4 fw-bold">ホーム</a>
-                                <a href="/product" class="nav-item nav-link mx-5 fs-4 fw-bold">商品</a>
-                                <a href="/contact" class="nav-item nav-link mx-5 fs-4 fw-bold">連絡</a>
+                                <a href="/" class="nav-item nav-link active mx-5 fs-4">ホーム</a>
+                                <a href="/product" class="nav-item nav-link mx-5 fs-4">商品</a>
+                                <a href="/contact" class="nav-item nav-link mx-5 fs-4">連絡</a>
                             </div>
                             <div class="d-flex m-3 me-0 flex-end me-5">
                                 <c:if test="${not empty pageContext.request.userPrincipal}">
