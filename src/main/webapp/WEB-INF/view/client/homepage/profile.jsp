@@ -53,54 +53,57 @@
                 <div class="page-content page-container" id="page-content">
                     <div class="container vh-100 d-flex align-items-center">
                         <div class="row container d-flex justify-content-center">
-                            <div class="col-xl-6 col-md-12">
+                            <div class="col-xl-4 col-md-12">
                                 <div class="card user-card-full">
-                                    <div class="row mx-0">
-                                        <div class="col-sm-4 bg-c-lite-green user-profile">
-                                            <div class="card-block text-center text-white">
-                                                <div class="my-4 square-container">
-                                                    <img src="/client/img/avatar/${user.avatar}">
-                                                </div>
-                                                <h5 class="fw-bold mb-3">${user.firstName} ${user.lastName}</h5>
+                                    <!-- <div class="row mx-0"> -->
+                                    <!-- <div class="col-sm-4 bg-c-lite-green user-profile"> -->
+                                    <div class="card-block text-center text-white">
+                                        <div class="mt-n75px d-flex justify-content-center">
+                                            <div class="mb-4 square-container d-flex justify-content-center">
+                                                <img src="/client/img/avatar/${user.avatar}">
                                             </div>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <div class="card-block">
-                                                <h3 class="text-center my-4">個人情報</h3>
-                                                <!-- <div class="row"> -->
-                                                <div class=" d-flex justify-content-between">
-                                                    <h6 class="mb-3">メール</h6>
-                                                    <h6 class="">${user.email}</h6>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="mb-3">電話番号</h6>
-                                                    <h6 class="">${user.phone}</h6>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="mb-3">住所</h6>
-                                                    <h6 class="">${user.address}</h6>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="mb-3">電話番号</h6>
-                                                    <h6 class="">${user.phone}</h6>
-                                                </div>
-                                                <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom"
-                                                            title="" data-original-title="facebook" data-abc="true"><i
-                                                                class="mdi mdi-facebook feather icon-facebook facebook"
-                                                                aria-hidden="true"></i></a></li>
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom"
-                                                            title="" data-original-title="twitter" data-abc="true"><i
-                                                                class="mdi mdi-twitter feather icon-twitter twitter"
-                                                                aria-hidden="true"></i></a></li>
-                                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom"
-                                                            title="" data-original-title="instagram" data-abc="true"><i
-                                                                class="mdi mdi-instagram feather icon-instagram instagram"
-                                                                aria-hidden="true"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <h3 class="fw-bold mb-3">${user.firstName} ${user.lastName}</h3>
+                                        <hr class="dropdown-divider w-75 mx-auto">
                                     </div>
+                                    <!-- </div> -->
+                                    <!-- <div class="col-sm-8"> -->
+                                    <div class="card-block">
+                                        <h4 class="text-center my-4">個人情報</h4>
+                                        <!-- <div class="row"> -->
+                                        <div class=" d-flex justify-content-between">
+                                            <h6 class="mb-3 ms-5">メール</h6>
+                                            <h6 class="me-5">${user.email}</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ms-5">電話番号</h6>
+                                            <h6 class="me-5">${user.phone}</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ms-5">住所</h6>
+                                            <h6 class="me-5">${user.address}</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-3 ms-5">電話番号</h6>
+                                            <h6 class="me-5">${user.phone}</h6>
+                                        </div>
+                                        <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                    data-original-title="facebook" data-abc="true"><i
+                                                        class="mdi mdi-facebook feather icon-facebook facebook"
+                                                        aria-hidden="true"></i></a></li>
+                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                    data-original-title="twitter" data-abc="true"><i
+                                                        class="mdi mdi-twitter feather icon-twitter twitter"
+                                                        aria-hidden="true"></i></a></li>
+                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                    data-original-title="instagram" data-abc="true"><i
+                                                        class="mdi mdi-instagram feather icon-instagram instagram"
+                                                        aria-hidden="true"></i></a></li>
+                                        </ul>
+                                        <!-- </div> -->
+                                    </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>

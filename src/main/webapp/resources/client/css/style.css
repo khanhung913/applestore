@@ -77,7 +77,7 @@
 /*** Topbar Start ***/
 .fixed-top {
     transition: 0.5s;
-    background: var(--bs-white);
+    background: var(--bs-light);
     border: 0;
 }
 
