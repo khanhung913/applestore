@@ -34,14 +34,17 @@
                                         <ul class="dropdown-menu dropdown-menu-end p-4" aria-
                                             labelledby="dropdownMenuLink">
                                             <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
-                                                <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
-                                                    src="/client/img/avatar/${sessionScope.avatar}" />
+                                                <div class="square-container-w100">
+                                                    <img src="/client/img/avatar/${sessionScope.avatar}" alt="">
+                                                </div>
+                                                <!-- <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
+                                                    src="/client/img/avatar/${sessionScope.avatar}" /> -->
                                                 <div class="text-center my-3 text-primary">
                                                     ${sessionScope.lastName}
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap">
-                                                <form action="#">
+                                                <form action="/profile" method="post">
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
                                                     <button

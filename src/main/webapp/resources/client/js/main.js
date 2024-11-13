@@ -322,6 +322,7 @@
     };
     $('.btnCancelOrder').click(function (event) {
         event.preventDefault();
+        if (!confirm("キャンセルしたいですか？")) return;
         const itemId = $(this).attr('data-item-id');
         const token = $("meta[name='_csrf']").attr("content");
         const header = $("meta[name='_csrf_header']").attr("content");
@@ -334,7 +335,7 @@
             type: "POST",
             data: JSON.stringify({ itemId: itemId }),
             contentType: "application/json",
-            success: function (response) {
+            success: function () {
                 // $(status).newVal(response);
                 $(status).text("キャンセル")
             },

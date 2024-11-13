@@ -12648,3 +12648,30 @@ fieldset:disabled .btn {
 .flex-end {
     justify-content: flex-end;
 }
+
+.square-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% !important
+}
+
+.square-container-w100 {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% !important
+}
+
+.square-container img,
+.square-container-w100 img {
+    height: 100%;
+    width: auto;
+
+}

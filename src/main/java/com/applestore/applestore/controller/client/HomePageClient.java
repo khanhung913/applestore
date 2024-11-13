@@ -166,4 +166,14 @@ public class HomePageClient {
         return "client/product/orderdetail";
     }
 
+    @PostMapping("/profile")
+    public String postMethodName(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        model.addAttribute("user", user);
+
+        return "client/homepage/profile";
+    }
+
 }
