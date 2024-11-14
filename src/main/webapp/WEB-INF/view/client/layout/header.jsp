@@ -13,9 +13,9 @@
                         </button>
                         <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="/" class="nav-item nav-link active mx-5 fs-4">ホーム</a>
-                                <a href="/product" class="nav-item nav-link mx-5 fs-4">商品</a>
-                                <a href="/contact" class="nav-item nav-link mx-5 fs-4">連絡</a>
+                                <a href="/" class="nav-item nav-link active mx-5 fs-5">ホーム</a>
+                                <a href="/product" class="nav-item nav-link mx-5 fs-5">商品</a>
+                                <a href="/contact" class="nav-item nav-link mx-5 fs-5">連絡</a>
                             </div>
                             <div class="d-flex m-3 me-0 flex-end me-5">
                                 <c:if test="${not empty pageContext.request.userPrincipal}">
@@ -34,11 +34,18 @@
                                         <ul class="dropdown-menu dropdown-menu-end p-4" aria-
                                             labelledby="dropdownMenuLink">
                                             <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
-                                                <div class="square-container-w100">
-                                                    <img src="/client/img/avatar/${sessionScope.avatar}" alt="">
-                                                </div>
-                                                <!-- <img style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden;"
-                                                    src="/client/img/avatar/${sessionScope.avatar}" /> -->
+
+                                                <c:if test="${not empty sessionScope.avatar}">
+                                                    <div class="square-container-w100">
+                                                        <img src="/client/img/avatar/${sessionScope.avatar}"
+                                                            alt="avatar">
+                                                    </div>
+                                                </c:if>
+                                                <c:if test="${empty sessionScope.avatar}">
+                                                    <div class="square-container-w100">
+                                                        <img src="/client/img/avatar/avatar.png" alt="avatar">
+                                                    </div>
+                                                </c:if>
                                                 <div class="text-center my-3 text-primary">
                                                     ${sessionScope.lastName}
                                                 </div>

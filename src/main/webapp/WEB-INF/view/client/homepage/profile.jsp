@@ -10,8 +10,8 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>Profil - Apple Store</title>
-                <link href="/css/styles.css" rel="stylesheet" />
+                <title>Profile - Apple Store</title>
+                <!-- <link href="/css/styles.css" rel="stylesheet" /> -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 </script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -58,11 +58,20 @@
                                     <!-- <div class="row mx-0"> -->
                                     <!-- <div class="col-sm-4 bg-c-lite-green user-profile"> -->
                                     <div class="card-block text-center text-white">
-                                        <div class="mt-n75px d-flex justify-content-center">
-                                            <div class="mb-4 square-container d-flex justify-content-center">
-                                                <img src="/client/img/avatar/${user.avatar}">
+                                        <c:if test="${not empty user.avatar}">
+                                            <div class="mt-n75px d-flex justify-content-center">
+                                                <div class="mb-4 square-container d-flex justify-content-center">
+                                                    <img src="/client/img/avatar/${user.avatar}">
+                                                </div>
                                             </div>
-                                        </div>
+                                        </c:if>
+                                        <c:if test="${empty user.avatar}">
+                                            <div class="mt-n75px d-flex justify-content-center">
+                                                <div class="mb-4 square-container d-flex justify-content-center">
+                                                    <img src="/client/img/avatar/avatar.png">
+                                                </div>
+                                            </div>
+                                        </c:if>
                                         <h3 class="fw-bold mb-3">${user.firstName} ${user.lastName}</h3>
                                         <hr class="dropdown-divider w-75 mx-auto">
                                     </div>
@@ -74,18 +83,28 @@
                                         <div class=" d-flex justify-content-between">
                                             <h6 class="mb-3 ms-5">メール</h6>
                                             <h6 class="me-5">${user.email}</h6>
+
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <h6 class="mb-3 ms-5">電話番号</h6>
-                                            <h6 class="me-5">${user.phone}</h6>
+                                            <c:if test="${not empty user.phone}">
+                                                <h6 class="me-5">${user.phone}</h6>
+                                            </c:if>
+                                            <c:if test="${empty user.phone}">
+                                                <h6 class="me-5">未設定</h6>
+                                            </c:if>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="mb-3 ms-5">住所</h6>
-                                            <h6 class="me-5">${user.address}</h6>
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <h6 class=" ms-5">住所</h6>
+                                            <c:if test="${not empty user.address}">
+                                                <h6 class="me-5">${user.address}</h6>
+                                            </c:if>
+                                            <c:if test="${empty user.address}">
+                                                <h6 class="me-5">未設定</h6>
+                                            </c:if>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="mb-3 ms-5">電話番号</h6>
-                                            <h6 class="me-5">${user.phone}</h6>
+                                        <div class="d-flex justify-content-center"><a href="#"
+                                                class="btn btn-primary border border-secondary rounded-pill px-4 text-primary">編集</a>
                                         </div>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
                                             <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""

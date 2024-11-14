@@ -3117,7 +3117,7 @@ textarea.form-control.is-invalid {
     padding: .375rem .75rem;
     font-size: 1rem;
     border-radius: 10px;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    /* transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out */
 }
 
 @media(prefers-reduced-motion: reduce) {
@@ -3133,7 +3133,7 @@ textarea.form-control.is-invalid {
 .btn-check:focus+.btn,
 .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 .25rem #333
+    box-shadow: 0 0 0 0 #333;
 }
 
 .btn:disabled,
@@ -3158,9 +3158,9 @@ fieldset:disabled .btn {
 .btn-check:focus+.btn-primary,
 .btn-primary:focus {
     color: #000;
-    background-color: #a6a6a6;
-    border-color: #a6a6a6;
-    box-shadow: 0 0 0 .25rem #a6a6a6
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 0 0 #fff;
 }
 
 .btn-check:checked+.btn-primary,
@@ -12659,7 +12659,8 @@ fieldset:disabled .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50% !important
+    border-radius: 50% !important;
+    background-color: #fff;
 }
 
 .square-container-w100 {
@@ -12669,7 +12670,8 @@ fieldset:disabled .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50% !important
+    border-radius: 50% !important;
+    background-color: #fff;
 }
 
 .square-container img,
