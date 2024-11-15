@@ -36,7 +36,7 @@ public class UploadService {
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                     .toString();
             String defaultFileName = file.getOriginalFilename();
-            int a = defaultFileName.indexOf(".");
+            int a = defaultFileName.indexOf(".", defaultFileName.length() - 5);
             String subString = defaultFileName.substring(a, defaultFileName.length());
             finalName = System.currentTimeMillis() + "-" + generatedString + subString;
             File serverFile = new File(dir.getAbsolutePath() + File.separator +
