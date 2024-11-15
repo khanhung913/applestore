@@ -51,21 +51,17 @@
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-center flex-lg-wrap">
-                                                <form action="/profile" method="post">
-                                                    <input type="hidden" name="${_csrf.parameterName}"
-                                                        value="${_csrf.token}" />
-                                                    <button
-                                                        class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
-                                                            class="fas fa-user-circle me-2 my-1"></i>
-                                                        アカウント管理</button>
-                                                </form>
+                                                <a href="/profile"
+                                                    class="btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"><i
+                                                        class="fas fa-user-circle me-2 my-1"></i>
+                                                    アカウント管理</a>
 
                                             <li class="d-flex justify-content-center flex-lg-wrap my-3">
                                                 <form action="/order-history" method="post">
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
                                                     <button
-                                                        class="btn btn-primary border border-secondary rounded-pill px-4 text-primary dropdown-item d-flex justify-content-center"><i
+                                                        class="btn btn-primary border border-secondary rounded-pill px-4 text-primary dropdown-item d-flex justify-content-center w-200px"><i
                                                             class="fas fa-shopping-cart me-2 my-1"></i>
                                                         注文履歴</button>
                                                 </form>
@@ -78,7 +74,7 @@
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
                                                     <button
-                                                        class="dropdown-item btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center"
+                                                        class="dropdown-item btn btn-primary border border-secondary rounded-pill px-3 text-primary dropdown-item d-flex justify-content-center w-200px"
                                                         href=""><i
                                                             class="fas fa-sign-out-alt my-auto mx-2"></i>サインアウト</button>
 

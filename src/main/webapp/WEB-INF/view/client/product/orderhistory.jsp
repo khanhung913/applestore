@@ -93,8 +93,16 @@
                                                     <td>
                                                         <a href="/order-detail/${item.id}"
                                                             class="btn btn-success mx-2 mt-3">詳しく</a>
-                                                        <button data-item-id="${item.id}"
-                                                            class="btnCancelOrder btn btn-danger mx-2 mt-3">キャンセル</button>
+                                                        <c:set var="cancel" value="キャンセル" />
+                                                        <c:if test="${item.status==cancel}">
+                                                            <button
+                                                                class="btn btn-danger mx-2 mt-3 disabled">キャンセル</button>
+                                                        </c:if>
+                                                        <c:if test="${item.status!=cancel}">
+                                                            <button data-item-id="${item.id}"
+                                                                class="btnCancelOrder btn${item.id} btn btn-danger mx-2 mt-3 ">キャンセル</button>
+                                                        </c:if>
+
                                                     </td>
                                                 </tr>
                                             </c:forEach>

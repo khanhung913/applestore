@@ -3,6 +3,7 @@ package com.applestore.applestore.controller.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.jms.JmsProperties.Listener.Session;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +20,16 @@ import com.applestore.applestore.domain.OrderDetail;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
-import com.applestore.applestore.repository.CartRepository;
 import com.applestore.applestore.repository.RoleRepository;
 import com.applestore.applestore.service.ProductService;
+import com.applestore.applestore.service.UploadService;
 import com.applestore.applestore.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class HomePageClient {
@@ -36,15 +37,15 @@ public class HomePageClient {
     private final ProductService productService;
     private final UserService userService;
     private final RoleRepository roleRepository;
-    private final CartRepository cartRepository;
+    private final UploadService uploadService;
 
     public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository, CartRepository cartRepository) {
+            RoleRepository roleRepository, UploadService uploadService) {
         this.productService = productService;
         this.userService = userService;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
-        this.cartRepository = cartRepository;
+        this.uploadService = uploadService;
     }
 
     @GetMapping("/")
@@ -166,14 +167,40 @@ public class HomePageClient {
         return "client/product/orderdetail";
     }
 
-    @PostMapping("/profile")
-    public String postMethodName(Model model, HttpServletRequest request) {
+    @GetMapping("/profile")
+    public String profilePage(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         String email = (String) session.getAttribute("email");
         User user = this.userService.handleFindByEmail(email);
         model.addAttribute("user", user);
 
         return "client/homepage/profile";
+    }
+
+    @GetMapping("/edit-profile")
+    public String getEditProfilePage(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        model.addAttribute("user", user);
+        return "client/homepage/edit-profile";
+    }
+
+    @PostMapping("/edit")
+    public String postEditProfilePage(Model model, @RequestParam("firstName") String firstName,
+            @RequestParam("lastName") String lastName, @RequestParam("phone") String phone,
+            @RequestParam("address") String address, @RequestParam("file") MultipartFile file,
+            HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        User user = this.userService.handleFindByEmail(email);
+        String fName = firstName;
+        String lName = lastName;
+        String phoneNumber = phone;
+        String newAddress = address;
+        String avt = this.uploadService.handleUploadFile(file, "avatar");
+        this.userService.handleSaveUserBeforeEditProfile(session,user, fName, lName, phoneNumber, newAddress, avt);
+        return "redirect:/profile";
     }
 
 }

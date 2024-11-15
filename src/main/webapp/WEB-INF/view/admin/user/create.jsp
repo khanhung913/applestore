@@ -77,7 +77,7 @@
                                             <div class="col-md-6">
                                                 <label for="avatarFile" class="form-label">Choose avatar:</label>
                                                 <input class="form-control" type="file" id="avatarFile" name="file"
-                                                    accept=".png,.jpg.jpeg" />
+                                                    accept=".png,.jpg,.jpeg" />
                                             </div>
                                             <div class="col-12 mt-5 d-flex justify-content-center">
                                                 <img style="max-height: 150px;display: none;" id="avatarPreview"

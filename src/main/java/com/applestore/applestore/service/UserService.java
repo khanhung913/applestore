@@ -10,6 +10,8 @@ import com.applestore.applestore.domain.DTO.RegisterDTO;
 import com.applestore.applestore.repository.RoleRepository;
 import com.applestore.applestore.repository.UserRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -58,5 +60,26 @@ public class UserService {
 
     public User getUserByEmail(String mail) {
         return this.userRepository.findByEmail(mail);
+    }
+
+    public void handleSaveUserBeforeEditProfile(HttpSession session, User user, String fName, String lName,
+            String phoneNumber,
+            String newAddress, String avt) {
+        User newUser = new User();
+        newUser.setId(user.getId());
+        newUser.setEmail(user.getEmail());
+        newUser.setFirstName(fName);
+        newUser.setLastName(lName);
+        if (avt.length() > 14) {
+            newUser.setAvatar(avt);
+            session.setAttribute("avatar", avt);
+        } else {
+            newUser.setAvatar(user.getAvatar());
+        }
+        newUser.setPhone(phoneNumber);
+        newUser.setPassword(user.getPassword());
+        newUser.setRole(user.getRole());
+        newUser.setAddress(newAddress);
+        this.userRepository.save(newUser);
     }
 }

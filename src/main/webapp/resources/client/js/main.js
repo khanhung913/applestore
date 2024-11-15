@@ -326,7 +326,8 @@
         const itemId = $(this).attr('data-item-id');
         const token = $("meta[name='_csrf']").attr("content");
         const header = $("meta[name='_csrf_header']").attr("content");
-        const status = document.getElementById(`status${itemId}`)
+        const status = document.getElementById(`status${itemId}`);
+        const btnCancel = document.getElementsByClassName(`btn${itemId}`)
         $.ajax({
             url: `${window.location.origin}/api/cancel-order`,
             beforeSend: function (xhr) {
@@ -337,7 +338,8 @@
             contentType: "application/json",
             success: function () {
                 // $(status).newVal(response);
-                $(status).text("キャンセル")
+                $(status).text("キャンセル");
+                $(btnCancel).addClass("disabled")
             },
             error: function (response) {
                 alert("エラー")

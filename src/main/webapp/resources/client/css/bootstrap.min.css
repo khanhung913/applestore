@@ -12684,3 +12684,7 @@ fieldset:disabled .btn {
 .mt-n75px {
     margin-top: -75px !important;
 }
+
+.w-200px {
+    width: 200px;
+}

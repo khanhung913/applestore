@@ -103,7 +103,7 @@
                                                 <h6 class="me-5">未設定</h6>
                                             </c:if>
                                         </div>
-                                        <div class="d-flex justify-content-center"><a href="#"
+                                        <div class="d-flex justify-content-center"><a href="/edit-profile"
                                                 class="btn btn-primary border border-secondary rounded-pill px-4 text-primary">編集</a>
                                         </div>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
