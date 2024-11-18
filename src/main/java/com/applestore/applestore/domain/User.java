@@ -2,8 +2,6 @@ package com.applestore.applestore.domain;
 
 import java.util.List;
 
-import com.applestore.applestore.service.Validator.StrongPassword;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +38,7 @@ public class User {
     private String address;
     private String phone;
     private String avatar;
+    private String token;
 
     @ManyToOne
     private Role role;
