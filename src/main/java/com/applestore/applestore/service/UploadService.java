@@ -27,8 +27,8 @@ public class UploadService {
             File dir = new File(rootPath + File.separator + targetFolder);
             if (!dir.exists())
                 dir.mkdirs();
-            int leftLimit = 97; // letter 'a'
-            int rightLimit = 122; // letter 'z'
+            int leftLimit = 97;
+            int rightLimit = 122;
             int targetStringLength = 10;
             Random random = new Random();
             String generatedString = random.ints(leftLimit, rightLimit + 1)
@@ -47,7 +47,6 @@ public class UploadService {
             stream.close();
 
         } catch (IOException e) {
-            // TODO: handle exception
         }
         return finalName;
     }
@@ -57,7 +56,6 @@ public class UploadService {
         try {
             byte[] bytes = file.getBytes();
             String rootPath = this.servletContext.getRealPath("/resources/client/img");
-            // System.out.println(rootPath);
             File dir = new File(rootPath + File.separator + targetFolder);
             if (!dir.exists())
                 dir.mkdirs();
@@ -70,7 +68,6 @@ public class UploadService {
             stream.close();
 
         } catch (IOException e) {
-            // TODO: handle exception
         }
         return finalName;
     }

@@ -43,12 +43,10 @@
             </head>
 
             <body>
-
                 <div id="spinner"
                     class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                     <div class="spinner-grow text-primary" role="status"></div>
                 </div>
-                <!-- Spinner End -->
                 <jsp:include page="../layout/header.jsp" />
                 <div class="auth-form vh-100">
                     <div class="contact-form-wrapper d-flex justify-content-center opacity-85">

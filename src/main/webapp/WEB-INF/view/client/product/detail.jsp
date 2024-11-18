@@ -94,14 +94,6 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <!-- <form action="/addItemToCartFromDetailPage/${product.id}" method="post">
-                                                <input type="hidden" name="${_csrf.parameterName}"
-                                                    value="${_csrf.token}" />
-                                                <div style="display: none;">
-                                                    <label for="product-quantity">Quantity:</label>
-                                                    <input type="text" class="form-control" id="product-quantity"
-                                                        name="product-quantity" value="1">
-                                                </div> -->
                                             <input class="form-control d-none" type="text" name="quantity"
                                                 id="product-quantity" value="1" />
                                             <button data-product-id="${product.id}"
@@ -109,7 +101,6 @@
                                                     class="fa fa-shopping-bag me-2 text-primary my-1"></i>
                                                 カートに入れる
                                             </button>
-                                            <!-- </form> -->
                                         </div>
                                         <div class="col-lg-12">
                                             <nav>
@@ -174,7 +165,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Single Product End -->
                     <jsp:include page="../layout/footer.jsp" />
 
 

@@ -11,7 +11,6 @@
                 <meta name="description" content="" />
                 <meta name="author" content="" />
                 <title>Profile - Apple Store</title>
-                <!-- <link href="/css/styles.css" rel="stylesheet" /> -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 </script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -48,15 +47,12 @@
                     class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                     <div class="spinner-grow text-primary" role="status"></div>
                 </div>
-                <!-- Spinner End -->
                 <jsp:include page="../layout/header.jsp" />
                 <div class="page-content page-container" id="page-content">
                     <div class="container vh-100 d-flex align-items-center">
                         <div class="row container d-flex justify-content-center">
                             <div class="col-xl-4 col-md-12">
                                 <div class="card user-card-full">
-                                    <!-- <div class="row mx-0"> -->
-                                    <!-- <div class="col-sm-4 bg-c-lite-green user-profile"> -->
                                     <div class="card-block text-center text-white">
                                         <c:if test="${not empty user.avatar}">
                                             <div class="mt-n75px d-flex justify-content-center">
@@ -75,11 +71,8 @@
                                         <h3 class="fw-bold mb-3">${user.firstName} ${user.lastName}</h3>
                                         <hr class="dropdown-divider w-75 mx-auto">
                                     </div>
-                                    <!-- </div> -->
-                                    <!-- <div class="col-sm-8"> -->
                                     <div class="card-block">
                                         <h4 class="text-center my-4">個人情報</h4>
-                                        <!-- <div class="row"> -->
                                         <div class=" d-flex justify-content-between">
                                             <h6 class="mb-3 ms-5">メール</h6>
                                             <h6 class="me-5">${user.email}</h6>
@@ -120,9 +113,7 @@
                                                         class="mdi mdi-instagram feather icon-instagram instagram"
                                                         aria-hidden="true"></i></a></li>
                                         </ul>
-                                        <!-- </div> -->
                                     </div>
-                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>

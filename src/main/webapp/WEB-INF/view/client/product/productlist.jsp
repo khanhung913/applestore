@@ -44,15 +44,12 @@
                 </head>
 
                 <body>
-                    <!-- Spinner Start -->
                     <div id="spinner"
                         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                         <div class="spinner-grow text-primary" role="status"></div>
                     </div>
-                    <!-- Spinner End -->
                     <jsp:include page="../layout/header.jsp" />
 
-                    <!-- Fruits Shop Start-->
                     <div class="container-fluid fruite mt-5">
                         <div class="container py-5">
                             <div class="row g-4">
@@ -82,14 +79,9 @@
                                                                 value="${product.price}" />
                                                         </p>
                                                         <div class="d-flex justify-content-center flex-lg-wrap mt-5">
-                                                            <!-- <form action="/addItemToCartFromProductPage/${product.id}"
-                                                                method="post">
-                                                                <input type="hidden" name="${_csrf.parameterName}"
-                                                                    value="${_csrf.token}" /> -->
                                                             <button data-product-id="${product.id}"
                                                                 class="btnAddToCartHomePage btn btn-primary border border-secondary rounded-pill text-primary">カートに入れる
                                                             </button>
-                                                            <!-- </form> -->
                                                         </div>
                                                     </div>
                                                 </div>
