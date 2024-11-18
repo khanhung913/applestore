@@ -70,7 +70,7 @@ public class UserService {
         newUser.setEmail(user.getEmail());
         newUser.setFirstName(fName);
         newUser.setLastName(lName);
-        if (avt.length() > 14) {
+        if (avt != null) {
             newUser.setAvatar(avt);
             session.setAttribute("avatar", avt);
         } else {

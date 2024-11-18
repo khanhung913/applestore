@@ -198,8 +198,11 @@ public class HomePageClient {
         String lName = lastName;
         String phoneNumber = phone;
         String newAddress = address;
-        String avt = this.uploadService.handleUploadFile(file, "avatar");
-        this.userService.handleSaveUserBeforeEditProfile(session,user, fName, lName, phoneNumber, newAddress, avt);
+        String avt = null;
+        if (file.getSize() != 0) {
+            avt = this.uploadService.handleUploadFile(file, "avatar");
+        }
+        this.userService.handleSaveUserBeforeEditProfile(session, user, fName, lName, phoneNumber, newAddress, avt);
         return "redirect:/profile";
     }
 
