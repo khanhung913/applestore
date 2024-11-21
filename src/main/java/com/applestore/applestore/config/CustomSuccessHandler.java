@@ -24,12 +24,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Component;
 
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
     private UserService userService;
     @Autowired
     private ProductService productService;
+
 
     protected String determineTargetUrl(final Authentication authentication) {
 

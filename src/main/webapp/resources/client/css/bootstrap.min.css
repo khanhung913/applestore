@@ -49,8 +49,12 @@
 
 body {
     margin: 0;
+<<<<<<< HEAD
     font-family: "MS P明朝";
     font-size: 1rem;
+=======
+    font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;    font-size: 1rem;
+>>>>>>> 185b1af277425bd2bd243de30114cff7eed34643
     font-weight: 400;
     line-height: 1.5;
     color: #747d88;
@@ -87,7 +91,11 @@ p,
 .p {
     margin-top: 0;
     margin-bottom: .5rem;
+<<<<<<< HEAD
     font-family: "MS P明朝";
+=======
+    font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+>>>>>>> 185b1af277425bd2bd243de30114cff7eed34643
     font-weight: 600;
     line-height: 1.2;
     color: #000;
