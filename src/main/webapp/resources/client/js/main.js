@@ -348,9 +348,47 @@
 
         });
     });
+    $('.btnConfirmRegister').click(function (event) {
+        event.preventDefault();
+        const tk = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+        const token = document.getElementById(`tokenRegister`).value;
+        const email = document.getElementById(`emailRegister`).value;
+        const confirmRegisterForm = document.getElementById(`confirmRegisterForm`);
+        const registerSuccess = document.getElementById(`registerSuccess`);
+        const registerFail = document.getElementById(`registerFail`)
+        $.ajax({
+            url: `${window.location.origin}/api/confirm-register`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, tk);
+            },
+            type: "POST",
+            data: JSON.stringify({ token: token, email: email }),
+            contentType: "application/json",
+            success: function (response) {
+                if (response == true) {
+                    confirmRegisterForm.classList.add("d-none");
+                    registerSuccess.classList.remove("d-none");
+                } else {
+                    confirmRegisterForm.classList.add("d-none");
+                    registerFail.classList.remove("d-none");
+                }
+            },
+            error: function (response) {
+                alert("エラー")
+                console.log("error: ", response);
+            }
+
+        });
+    });
+    $('.btnRegisterFail').click(function (event) {
+        event.preventDefault();
+        const confirmRegisterForm = document.getElementById(`confirmRegisterForm`);
+        const registerFail = document.getElementById(`registerFail`)
+        confirmRegisterForm.classList.remove("d-none");
+        registerFail.classList.add("d-none");
+    });
 
 })(jQuery);
-
-
 
 

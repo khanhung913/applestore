@@ -18,6 +18,7 @@ import com.applestore.applestore.domain.CartItem;
 import com.applestore.applestore.domain.Order;
 import com.applestore.applestore.domain.OrderDetail;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
+import com.applestore.applestore.email.EmailService;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
 import com.applestore.applestore.repository.RoleRepository;
@@ -30,6 +31,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class HomePageClient {
@@ -38,14 +40,16 @@ public class HomePageClient {
     private final UserService userService;
     private final RoleRepository roleRepository;
     private final UploadService uploadService;
+    private final EmailService emailService;
 
     public HomePageClient(ProductService productService, UserService userService, PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository, UploadService uploadService) {
+            RoleRepository roleRepository, UploadService uploadService, EmailService emailService) {
         this.productService = productService;
         this.userService = userService;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.uploadService = uploadService;
+        this.emailService = emailService;
     }
 
     @GetMapping("/")
@@ -62,7 +66,8 @@ public class HomePageClient {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("newRegisterDTO", new RegisterDTO());
         return "client/auth/login";
     }
 
@@ -77,12 +82,25 @@ public class HomePageClient {
             BindingResult bindingResult) {
         User user = new User();
         this.userService.mapperUser(user, RegisterDTO);
+        user.setEnable(false);
+        user.setToken(this.userService.handleGenerateToken());
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        user.setRole(this.roleRepository.findByName("User"));
+        user.setRole(this.roleRepository.findByName("Admin"));
+        String htmlEmailMsg = "\"<body style='border:2px solid black'>\"\n" + //
+                "                    +\"Your onetime password for registration is" + user.getToken() + "  \" \n" + //
+                "                        + \"Please use this OTP to complete your new user registration.\"+\n" + //
+                "                          \"OTP is confidential, do not share this  with anyone.</body>\";";
+        this.emailService.sendEmail(user.getEmail(), htmlEmailMsg);
+        model.addAttribute("email", RegisterDTO.getEmail());
         if (bindingResult.hasErrors())
             return "client/auth/signup";
         this.userService.handleSaveUser(user);
-        return "redirect:/login?success";
+        return "client/auth/email-confirm";
+    }
+
+    @GetMapping("/success")
+    public String ConfirmSuccess(Model model) {
+        return "client/auth/confirmSuccess";
     }
 
     @GetMapping("/404-not-found")

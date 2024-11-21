@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         com.applestore.applestore.domain.User user = this.userService.getUserByEmail(username);
-        if (user == null) {
+        if (user == null || !user.isEnable()) {
             throw new UsernameNotFoundException(username);
         }
 

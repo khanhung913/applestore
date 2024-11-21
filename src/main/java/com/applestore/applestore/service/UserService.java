@@ -1,6 +1,7 @@
 package com.applestore.applestore.service;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -81,5 +82,17 @@ public class UserService {
         newUser.setRole(user.getRole());
         newUser.setAddress(newAddress);
         this.userRepository.save(newUser);
+    }
+
+    public String handleGenerateToken() {
+        int leftLimit = 48;
+        int rightLimit = 57;
+        int targetStringLength = 6;
+        Random random = new Random();
+        String generatedToken = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        return generatedToken;
     }
 }

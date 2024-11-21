@@ -42,20 +42,18 @@
                         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                         <div class="spinner-grow text-primary" role="status"></div>
                     </div>
-
                     <div class="auth-form">
                         <div class="container">
-                            <div class="opacity-85 vh-100 d-flex justify-content-center align-items-center">
+                            <div class="vh-100 d-flex justify-content-center align-items-center">
                                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                                     <div class="card border border-light-subtle rounded-3 shadow-sm bg-light">
                                         <div class="card-body p-2 p-md-3 p-xl-4">
-                                            <div class="text-center mb-3">
+                                            <div class="text-center mb-4">
                                                 <a href="/">
                                                     <img src="/client/img/applelogo.png" alt="Apple Logo" width="50">
                                                 </a>
                                             </div>
-                                            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Enter your
-                                                details to register</h2>
+
                                             <form:form action="/signup" method="post" modelAttribute="newRegisterDTO">
                                                 <div class="row gy-2 overflow-hidden">
                                                     <c:set var="errorEmail">
@@ -80,27 +78,27 @@
                                                                 class="form-control ${not empty errorEmail ? 'is-invalid':''}"
                                                                 name="email" id="email" placeholder="name@example.com"
                                                                 path="email" />
-                                                            <label for="email" class="form-label">Email</label>
+                                                            <label for="email" class="form-label">メール</label>
                                                             ${errorEmail}
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-6">
                                                         <div class="form-floating mb-3">
                                                             <form:input type="text"
                                                                 class="form-control ${not empty errorFirstName ? 'is-invalid':''}"
                                                                 name="firstName" id="firstName" placeholder="First Name"
                                                                 path="firstName" />
-                                                            <label for="firstName" class="form-label">First Name</label>
+                                                            <label for="firstName" class="form-label">姓</label>
                                                             ${errorFirstName}
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-6">
                                                         <div class="form-floating mb-3">
                                                             <form:input type="text"
                                                                 class="form-control ${not empty errorLastName ? 'is-invalid':''}"
                                                                 name="lastName" id="lastName" placeholder="Last Name"
                                                                 path="lastName" />
-                                                            <label for="lastName" class="form-label">Last Name</label>
+                                                            <label for="lastName" class="form-label">名</label>
                                                             ${errorLastName}
                                                         </div>
                                                     </div>
@@ -110,7 +108,7 @@
                                                                 class="form-control ${not empty errorPassword ? 'is-invalid':''}"
                                                                 name="password" id="password" value=""
                                                                 placeholder="Password" path="password" />
-                                                            <label for="password" class="form-label">Password</label>
+                                                            <label for="password" class="form-label">パスワード</label>
                                                             ${errorPassword}
                                                         </div>
                                                     </div>
@@ -120,34 +118,31 @@
                                                                 class="form-control ${not empty errorConfirmPassword ? 'is-invalid':''}"
                                                                 name="confirmpassword" id="confirmpassword" value=""
                                                                 placeholder="Confirm Password" path="confirmPassword" />
-                                                            <label for="confirmpassword" class="form-label">Confirm
-                                                                Password</label>
+                                                            <label for="confirmpassword"
+                                                                class="form-label">確認パスワード</label>
                                                             ${errorConfirmPassword}
 
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                name="iAgree" id="iAgree" required>
+                                                        <div class="form-check d-flex justify-content-center">
+                                                            <input class="form-check-input mx-1" type="checkbox"
+                                                                value="" name="iAgree" id="iAgree" required />
                                                             <label class="form-check-label text-secondary" for="iAgree">
-                                                                I agree to the <a href="#!"
-                                                                    class="link-primary text-decoration-none">terms and
-                                                                    conditions</a>
+                                                                利用規約に同意します
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <div class="d-grid my-3">
-                                                            <button class="btn btn-primary btn-lg" type="submit">Sign
-                                                                up</button>
+                                                        <div class="d-flex justify-content-center my-3">
+                                                            <button class="btn btn-primary btn-lg px-4" type="submit">登録
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <p class="m-0 text-secondary text-center">Already have an
-                                                            account? <a href="/login"
-                                                                class="link-primary text-decoration-none">Sign
-                                                                in</a>
+                                                        <p class="m-0 text-secondary text-center">アカウントが持っている方: <a
+                                                                href="/login"
+                                                                class="link-primary text-decoration-underline">ログイン</a>
                                                         </p>
                                                     </div>
                                                 </div>

@@ -2,8 +2,6 @@ package com.applestore.applestore.domain;
 
 import java.util.List;
 
-import com.applestore.applestore.service.Validator.StrongPassword;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +38,8 @@ public class User {
     private String address;
     private String phone;
     private String avatar;
+    private String token;
+    private boolean enabled;
 
     @ManyToOne
     private Role role;
@@ -143,6 +143,22 @@ public class User {
 
     public void setCarts(Cart carts) {
         this.carts = carts;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public boolean isEnable() {
+        return enabled;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enabled = enable;
     }
 
 }

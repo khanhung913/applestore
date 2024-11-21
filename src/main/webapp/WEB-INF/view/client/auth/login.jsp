@@ -42,9 +42,9 @@
                         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                         <div class="spinner-grow text-primary" role="status"></div>
                     </div>
-                    <section class="auth-form">
+                    <div class="auth-form">
                         <div class="container">
-                            <div class="opacity-85 vh-100 row d-flex justify-content-center align-items-center">
+                            <div class="vh-100 row d-flex justify-content-center align-items-center">
                                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                                     <div class="card border border-light-subtle rounded-3 shadow-sm bg-light">
                                         <div class="card-body p-3 p-md-4 p-xl-5">
@@ -100,15 +100,15 @@
                                                             class="link-primary text-decoration-none">パスワード忘れた?</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <div class="d-grid my-3">
+                                                        <div class="d-flex justify-content-center my-3">
                                                             <button class="btn btn-primary btn-lg"
                                                                 type="submit">ロクイン</button>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 text-center">
-
-                                                        <a href="/signup"
-                                                            class="link-primary text-decoration-none">アカウントを作成する</a>
+                                                        <p>アカウントを作成する: <a href="/signup"
+                                                                class="link-primary text-decoration-underline ">こちら</a>
+                                                        </p>
 
                                                     </div>
                                                 </div>
@@ -118,7 +118,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
 
                     <!-- JavaScript Libraries -->
