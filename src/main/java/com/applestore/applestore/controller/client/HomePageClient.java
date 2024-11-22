@@ -90,8 +90,29 @@ public class HomePageClient {
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
         user.setRole(this.roleRepository.findByName("User"));
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
+        String html = "<!doctype html>\n" +
+                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"\n" +
+                "      xmlns:th=\"http://www.thymeleaf.org\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\"\n" +
+                "          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n"
+                +
+                "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n" +
+                "    <title>Email</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<div><b>" + user.getFirstName() + "様</b></div>\n" +
+                "\n" +
+                "<div>認証する為、下のボタンをクリックしてください。</div>" +
+                "<div>有効期限は６０分です。</div>" +
+                "<a href=" + "\"https://wbc.tokyo/regitrationConfirm?token=" + user.getToken() + "\"" + ">\n" +
+                "    <button>認証</button>\n" +
+                "</a>\n" +
+                "</body>\n" +
+                "</html>\n";
         this.emailService.sendEmail(user.getEmail(),
-                "https://wbc.tokyo/regitrationConfirm?token=" + user.getToken());
+                html);
         model.addAttribute("email", RegisterDTO.getEmail());
         this.userService.handleSaveUser(user);
         return "client/auth/sendRegistrationSuccess";
