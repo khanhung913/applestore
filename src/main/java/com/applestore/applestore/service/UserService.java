@@ -95,4 +95,8 @@ public class UserService {
                 .toString();
         return generatedToken;
     }
+
+    public User handleFindUserByToken(String token) {
+        return this.userRepository.findByToken(token);
+    }
 }

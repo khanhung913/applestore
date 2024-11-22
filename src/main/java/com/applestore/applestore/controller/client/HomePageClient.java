@@ -1,7 +1,9 @@
 package com.applestore.applestore.controller.client;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.boot.autoconfigure.jms.JmsProperties.Listener.Session;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,7 +33,6 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class HomePageClient {
@@ -80,22 +81,37 @@ public class HomePageClient {
     @PostMapping("/signup")
     public String signupRegister(Model model, @ModelAttribute("newRegisterDTO") @Valid RegisterDTO RegisterDTO,
             BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "client/auth/signup";
         User user = new User();
         this.userService.mapperUser(user, RegisterDTO);
         user.setEnable(false);
-        user.setToken(this.userService.handleGenerateToken());
+        user.setToken(UUID.randomUUID().toString());
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        user.setRole(this.roleRepository.findByName("Admin"));
-        String htmlEmailMsg = "\"<body style='border:2px solid black'>\"\n" + //
-                "                    +\"Your onetime password for registration is" + user.getToken() + "  \" \n" + //
-                "                        + \"Please use this OTP to complete your new user registration.\"+\n" + //
-                "                          \"OTP is confidential, do not share this  with anyone.</body>\";";
-        this.emailService.sendEmail(user.getEmail(), htmlEmailMsg);
+        user.setRole(this.roleRepository.findByName("User"));
+        user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
+        this.emailService.sendEmail(user.getEmail(),
+                "https://wbc.tokyo/regitrationConfirm?token=" + user.getToken());
         model.addAttribute("email", RegisterDTO.getEmail());
-        if (bindingResult.hasErrors())
-            return "client/auth/signup";
         this.userService.handleSaveUser(user);
-        return "client/auth/email-confirm";
+        return "client/auth/sendRegistrationSuccess";
+    }
+
+    @GetMapping("/regitrationConfirm")
+    public String confirmRegistration(Model model, @RequestParam("token") String token) {
+        User user = this.userService.handleFindUserByToken(token);
+        long confirmTime = 3600000;
+        if (user == null)
+            return "redirect:/404-not-found";
+        if (user.getToken().equals(token)
+                && Calendar.getInstance().getTimeInMillis() - user.getTimesendtoken() <= confirmTime) {
+            user.setEnable(true);
+            user.setToken("");
+            this.userService.handleSaveUser(user);
+            return "client/auth/verifySuccess";
+        } else {
+            return "redirect:/404-not-found";
+        }
     }
 
     @GetMapping("/success")

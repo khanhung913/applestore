@@ -35,6 +35,9 @@
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
                     <link rel="icon" type="image/x-icon" href="/client/img/applelogo.png">
+                    <meta name="_csrf" content="${_csrf.token}" />
+                    <!-- default header name is X-CSRF-TOKEN -->
+                    <meta name="_csrf_header" content="${_csrf.headerName}" />
                 </head>
 
                 <body>
@@ -45,7 +48,7 @@
                     <div class="auth-form">
                         <div class="container">
                             <div class="vh-100 row d-flex justify-content-center align-items-center">
-                                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                                <div id="loginForm" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                                     <div class="card border border-light-subtle rounded-3 shadow-sm bg-light">
                                         <div class="card-body p-3 p-md-4 p-xl-5">
                                             <div class="text-center mb-4">
@@ -96,8 +99,8 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 text-center"><a href="#!"
-                                                            class="link-primary text-decoration-none">パスワード忘れた?</a>
+                                                    <div class="col-12 text-center"><a
+                                                            class="btnResetPassword link-primary text-decoration-none">パスワード忘れた?</a>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="d-flex justify-content-center my-3">
@@ -116,6 +119,44 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="resetPasswordForm"
+                                    class="d-none col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                                    <div class="card border border-light-subtle rounded-3 shadow-sm bg-light">
+                                        <div class="card-body p-3 p-md-4 p-xl-5">
+                                            <div class="text-center mb-4">
+                                                <a href="/">
+                                                    <img src="/client/img/applelogo.png" alt="Apple Logo" width="50">
+                                                </a>
+                                            </div>
+                                            <div class="row gy-2 overflow-hidden mt-3">
+                                                <div class="col-12" id="resetPassEmail">
+                                                    <div class="form-floating mb-3">
+                                                        <input type="email" class="form-control" id="resetPasswordEmail"
+                                                            name="email" placeholder="name@example.com" required>
+                                                        <label for="email" class="form-label">メール</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6 id="emailCheckExistMessage">登録したメールを入力してください。</h6>
+                                                    <h6 class="d-none text-success" id="emailCheckExistSuccess">
+                                                        メールに送信されたコードを入力してください。
+                                                    </h6>
+                                                    <h6 class="d-none text-danger" id="emailCheckExistError">
+                                                        このメールはまだ登録されていません。
+                                                    </h6>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="d-flex justify-content-center my-3">
+                                                        <button class="btn btn-primary btn-lg mx-3"
+                                                            type="submit">戻る</button>
+                                                        <button
+                                                            class="btnCheckEmailResetPassword btn btn-primary btn-lg mx-3">確認</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +169,8 @@
                     <script src="/client/lib/waypoints/waypoints.min.js"></script>
                     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
                     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
-
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
                     <!-- Template Javascript -->
                     <script src="/client/js/main.js"></script>
                 </body>

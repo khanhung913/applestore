@@ -39,6 +39,7 @@ public class User {
     private String phone;
     private String avatar;
     private String token;
+    private long timesendtoken;
     private boolean enabled;
 
     @ManyToOne
@@ -130,13 +131,6 @@ public class User {
         this.orders = orders;
     }
 
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-                + ", lastName=" + lastName + ", address=" + address + ", phone=" + phone + ", avatar=" + avatar
-                + ", role=" + role + ", orders=" + orders + "]";
-    }
-
     public Cart getCarts() {
         return carts;
     }
@@ -159,6 +153,14 @@ public class User {
 
     public void setEnable(boolean enable) {
         this.enabled = enable;
+    }
+
+    public long getTimesendtoken() {
+        return timesendtoken;
+    }
+
+    public void setTimesendtoken(long timesendtoken) {
+        this.timesendtoken = timesendtoken;
     }
 
 }

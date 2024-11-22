@@ -348,30 +348,51 @@
 
         });
     });
-    $('.btnConfirmRegister').click(function (event) {
+    $('.btnResetPassword').click(function (event) {
+        event.preventDefault();
+        const loginForm = document.getElementById(`loginForm`);
+        const resetPasswordForm = document.getElementById(`resetPasswordForm`);
+        resetPasswordForm.classList.remove("d-none");
+        loginForm.classList.add("d-none");
+    });
+    $('.btnCheckEmailResetPassword').click(function (event) {
         event.preventDefault();
         const tk = $("meta[name='_csrf']").attr("content");
         const header = $("meta[name='_csrf_header']").attr("content");
-        const token = document.getElementById(`tokenRegister`).value;
-        const email = document.getElementById(`emailRegister`).value;
-        const confirmRegisterForm = document.getElementById(`confirmRegisterForm`);
-        const registerSuccess = document.getElementById(`registerSuccess`);
-        const registerFail = document.getElementById(`registerFail`)
+        const email = document.getElementById(`resetPasswordEmail`).value;
+        const resetPassEmail = document.getElementById(`resetPassEmail`);
+        const resetPassCode = document.getElementById(`resetPassCode`);
+        const emailCheckExistMessage = document.getElementById(`emailCheckExistMessage`);
+        const emailCheckExistSuccess = document.getElementById(`emailCheckExistSuccess`);
+        const emailCheckExistError = document.getElementById(`emailCheckExistError`);
         $.ajax({
-            url: `${window.location.origin}/api/confirm-register`,
+            url: `${window.location.origin}/api/checkExistEmailResetPassword`,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader(header, tk);
             },
             type: "POST",
-            data: JSON.stringify({ token: token, email: email }),
+            data: JSON.stringify({ email: email }),
             contentType: "application/json",
             success: function (response) {
                 if (response == true) {
-                    confirmRegisterForm.classList.add("d-none");
-                    registerSuccess.classList.remove("d-none");
+                    resetPassEmail.classList.add("d-none");
+                    emailCheckExistMessage.classList.add("d-none");
+                    resetPassCode.classList.remove("d-none");
+                    emailCheckExistSuccess.classList.remove("d-none");
+                    emailCheckExistError.classList.add("d-none");
+                    $.ajax({
+                        url: `${window.location.origin}/api/sendCodeResetPasswordv`,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader(header, tk);
+                        },
+                        type: "POST",
+                        data: JSON.stringify({ email: email }),
+                        contentType: "application/json"
+                    });
                 } else {
-                    confirmRegisterForm.classList.add("d-none");
-                    registerFail.classList.remove("d-none");
+                    emailCheckExistMessage.classList.add("d-none");
+                    emailCheckExistSuccess.classList.add("d-none");
+                    emailCheckExistError.classList.remove("d-none");
                 }
             },
             error: function (response) {
@@ -381,14 +402,6 @@
 
         });
     });
-    $('.btnRegisterFail').click(function (event) {
-        event.preventDefault();
-        const confirmRegisterForm = document.getElementById(`confirmRegisterForm`);
-        const registerFail = document.getElementById(`registerFail`)
-        confirmRegisterForm.classList.remove("d-none");
-        registerFail.classList.add("d-none");
-    });
-
 })(jQuery);
 
 
