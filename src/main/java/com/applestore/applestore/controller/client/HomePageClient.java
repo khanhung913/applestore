@@ -102,16 +102,18 @@ public class HomePageClient {
                 "    <title>Email</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<div><b>" + user.getFirstName() + "様</b></div>\n" +
-                "\n" +
-                "<div>認証する為、下のボタンをクリックしてください。</div>" +
-                "<div>有効期限は６０分です。</div>" +
-                "<a href=" + "\"https://wbc.tokyo/regitrationConfirm?token=" + user.getToken() + "\"" + ">\n" +
-                "    <button>認証</button>\n" +
-                "</a>\n" +
+                "<h3><b>" + user.getFirstName() + " " + user.getLastName() + " 様</b></h3>\n" +
+                "<p>ご登録いただき、ありがとうございます。</p>" +
+                "<div>" + " " + "※" + "  " + "認証する為、下のリンクをクリックしてください。</div>" +
+                "<div>" + " " + "※" + "  " + "有効期限は６０分です。</div>" +
+                "<div>" + " " + "※" + "  " + "有効期限が過ぎたら、無効となります。</div>" +
+                "<p>https://wbc.tokyo/regitrationConfirm?token=" + user.getToken() + "</p>" +
+                "<p>このメールに返信されましても、お答えする事は出来ませんのでご了承願います。</p>" +
+                "<p>-----------------------------------</p>" +
+                "<div>(C)Apple Store - WBC</div>\n" +
                 "</body>\n" +
                 "</html>\n";
-        this.emailService.sendEmail(user.getEmail(),
+        this.emailService.sendEmail(user.getEmail(), "【メール認証の連絡】",
                 html);
         model.addAttribute("email", RegisterDTO.getEmail());
         this.userService.handleSaveUser(user);

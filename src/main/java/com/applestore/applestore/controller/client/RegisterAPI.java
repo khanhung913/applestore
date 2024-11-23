@@ -66,7 +66,7 @@ public class RegisterAPI {
         User user = this.userService.handleFindByEmail(registerForm.getEmail());
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
         user.setToken(this.userService.handleGenerateToken());
-        this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
+        // this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
         this.userService.handleSaveUser(user);
     }
 
@@ -87,7 +87,7 @@ public class RegisterAPI {
         User user = this.userService.handleFindByEmail(registerForm.getEmail());
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
         user.setToken(this.userService.handleGenerateToken());
-        this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
+        // this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
         this.userService.handleSaveUser(user);
     }
 }
