@@ -57,7 +57,6 @@
                                 </p>
 
                             </div>
-                            <jsp:include page="../layout/featur.jsp" />
                         </div>
                     </div>
 
