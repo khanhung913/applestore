@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
@@ -29,7 +30,7 @@ public class EmailService implements EmailSender {
             helper.setText(email, true);
             helper.setTo(to);
             helper.setSubject(subject);
-            helper.setFrom("wbc.applestore@email.com");
+            helper.setFrom(new InternetAddress("Apple Store <wbc.applestore@gmail.com>"));
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
             logger.error("Failed to send email for: " + email + "\n" + e);
