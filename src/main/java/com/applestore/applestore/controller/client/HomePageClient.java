@@ -20,6 +20,7 @@ import com.applestore.applestore.domain.CartItem;
 import com.applestore.applestore.domain.Order;
 import com.applestore.applestore.domain.OrderDetail;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
+import com.applestore.applestore.domain.DTO.ResetPassDTO;
 import com.applestore.applestore.email.EmailService;
 import com.applestore.applestore.domain.Product;
 import com.applestore.applestore.domain.User;
@@ -33,6 +34,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class HomePageClient {
@@ -135,6 +137,42 @@ public class HomePageClient {
         } else {
             return "redirect:/404-not-found";
         }
+    }
+
+    @GetMapping("/resetPassword")
+    public String resetPassword(Model model, @RequestParam("token") String token) {
+        User user = this.userService.handleFindUserByToken(token);
+        long confirmTime = 3600000;
+        if (user == null)
+            return "redirect:/404-not-found";
+        if (user.getToken().equals(token)
+                && Calendar.getInstance().getTimeInMillis() - user.getTimesendtoken() <= confirmTime) {
+            // user.setToken("");
+            // this.userService.handleSaveUser(user);
+            model.addAttribute("token", token);
+            model.addAttribute("newResetPassDTO", new ResetPassDTO());
+            // return "redirect:/resetPassword/confirm?" + token;
+            return "client/auth/resetpassword";
+        } else {
+            return "redirect:/404-not-found";
+        }
+    }
+
+    // @GetMapping("/resetPassword/confirm")
+    // public String resetPasswordPage(Model model) {
+    // return "client/auth/resetpassword";
+    // }
+
+    @PostMapping("/resetPassword")
+    public String resetPasswordConfirm(Model model, @RequestParam("token") String token,
+            @ModelAttribute("newResetPassDTO") @Valid ResetPassDTO resetPassDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "client/auth/resetpassword";
+        User user = this.userService.handleFindUserByToken(token);
+        user.setPassword(this.passwordEncoder.encode(resetPassDTO.getPassword()));
+        user.setToken("");
+        this.userService.handleSaveUser(user);
+        return "client/auth/verifySuccess";
     }
 
     @GetMapping("/success")

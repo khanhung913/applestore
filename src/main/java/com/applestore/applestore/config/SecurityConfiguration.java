@@ -68,7 +68,7 @@ public class SecurityConfiguration {
                                                                 "/js/**",
                                                                 "/images/**", "/signup/**", "/confirmRegister/**",
                                                                 "/success/**", "/regitrationConfirm/**",
-                                                                "/404-not-found")
+                                                                "/404-not-found", "/resetPassword/**")
                                                 .permitAll()
                                                 .requestMatchers("/admin/**")
                                                 .hasRole("ADMIN")

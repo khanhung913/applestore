@@ -60,16 +60,6 @@ public class RegisterAPI {
         return ResponseEntity.ok().body(false);
     }
 
-    @PostMapping("/api/resendcode")
-    public void resendcodeAPI(
-            @RequestBody() RegisterForm registerForm) {
-        User user = this.userService.handleFindByEmail(registerForm.getEmail());
-        user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
-        user.setToken(this.userService.handleGenerateToken());
-        // this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
-        this.userService.handleSaveUser(user);
-    }
-
     @PostMapping("/api/checkExistEmailResetPassword")
     public ResponseEntity<Boolean> checkExistEmailResetPassword(
             @RequestBody() RegisterForm registerForm) {
@@ -86,8 +76,31 @@ public class RegisterAPI {
             @RequestBody() RegisterForm registerForm) {
         User user = this.userService.handleFindByEmail(registerForm.getEmail());
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
-        user.setToken(this.userService.handleGenerateToken());
-        // this.emailService.sendEmail(registerForm.getEmail(), user.getToken());
+        user.setToken(UUID.randomUUID().toString());
+        String html = "<!doctype html>\n" +
+                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"\n" +
+                "      xmlns:th=\"http://www.thymeleaf.org\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\"\n" +
+                "          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n"
+                +
+                "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n" +
+                "    <title>Email</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<h3><b>" + user.getFirstName() + " " + user.getLastName() + " 様</b></h3>\n" +
+                "<p>いつもご利用いただき、ありがとうございます。</p>" +
+                "<div>" + " " + "※" + "  " + "パスワード再設定する為、下のリンクをクリックしてください。</div>" +
+                "<div>" + " " + "※" + "  " + "有効期限は６０分です。</div>" +
+                "<div>" + " " + "※" + "  " + "有効期限が過ぎたら、無効となります。</div>" +
+                "<p>https://wbc.tokyo/resetPassword?token=" + user.getToken() + "</p>" +
+                "<p>このメールに返信されましても、お答えする事は出来ませんのでご了承願います。</p>" +
+                "<p>-----------------------------------</p>" +
+                "<div>(C)Apple Store - WBC</div>\n" +
+                "</body>\n" +
+                "</html>\n";
+        this.emailService.sendEmail(registerForm.getEmail(), "【パスワード再設定の連絡】", html);
         this.userService.handleSaveUser(user);
     }
 }

@@ -138,12 +138,6 @@
                                                 </div>
                                                 <div>
                                                     <h6 id="emailCheckExistMessage">登録したメールを入力してください。</h6>
-                                                    <h6 class="d-none text-success" id="emailCheckExistSuccess">
-                                                        メールに送信されたコードを入力してください。
-                                                    </h6>
-                                                    <h6 class="d-none text-danger" id="emailCheckExistError">
-                                                        このメールはまだ登録されていません。
-                                                    </h6>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-flex justify-content-center my-3">

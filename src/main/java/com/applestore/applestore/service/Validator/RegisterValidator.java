@@ -3,6 +3,7 @@ package com.applestore.applestore.service.Validator;
 import org.springframework.stereotype.Service;
 
 import com.applestore.applestore.domain.DTO.RegisterDTO;
+import com.applestore.applestore.domain.DTO.ResetPassDTO;
 import com.applestore.applestore.service.UserService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

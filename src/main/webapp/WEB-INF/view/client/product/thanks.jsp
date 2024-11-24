@@ -11,6 +11,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                     <meta name="description" content="" />
                     <meta name="author" content="" />
+                    <meta http-equiv="refresh" content="2; url=/">
                     <title>Thank you for order</title>
                     <!-- Google Web Fonts -->
                     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +49,8 @@
 
                     <div class="vh-100 d-flex justify-content-center align-items-center">
                         <div class="container-fluid">
+                            <div class="d-flex justify-content-center"><img src="/client/img/checked.png" width="150px">
+                            </div>
                             <div class="jumbotron text-center">
                                 <h1 class="mt-5">ありがとうございます!</h1>
                                 <hr>

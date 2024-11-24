@@ -360,11 +360,11 @@
         const tk = $("meta[name='_csrf']").attr("content");
         const header = $("meta[name='_csrf_header']").attr("content");
         const email = document.getElementById(`resetPasswordEmail`).value;
-        const resetPassEmail = document.getElementById(`resetPassEmail`);
-        const resetPassCode = document.getElementById(`resetPassCode`);
-        const emailCheckExistMessage = document.getElementById(`emailCheckExistMessage`);
-        const emailCheckExistSuccess = document.getElementById(`emailCheckExistSuccess`);
-        const emailCheckExistError = document.getElementById(`emailCheckExistError`);
+        // const resetPassEmail = document.getElementById(`resetPassEmail`);
+        // const resetPassCode = document.getElementById(`resetPassCode`);
+        // const emailCheckExistMessage = document.getElementById(`emailCheckExistMessage`);
+        // const emailCheckExistSuccess = document.getElementById(`emailCheckExistSuccess`);
+        // const emailCheckExistError = document.getElementById(`emailCheckExistError`);
         $.ajax({
             url: `${window.location.origin}/api/checkExistEmailResetPassword`,
             beforeSend: function (xhr) {
@@ -375,13 +375,8 @@
             contentType: "application/json",
             success: function (response) {
                 if (response == true) {
-                    resetPassEmail.classList.add("d-none");
-                    emailCheckExistMessage.classList.add("d-none");
-                    resetPassCode.classList.remove("d-none");
-                    emailCheckExistSuccess.classList.remove("d-none");
-                    emailCheckExistError.classList.add("d-none");
                     $.ajax({
-                        url: `${window.location.origin}/api/sendCodeResetPasswordv`,
+                        url: `${window.location.origin}/api/sendCodeResetPassword`,
                         beforeSend: function (xhr) {
                             xhr.setRequestHeader(header, tk);
                         },
@@ -389,10 +384,6 @@
                         data: JSON.stringify({ email: email }),
                         contentType: "application/json"
                     });
-                } else {
-                    emailCheckExistMessage.classList.add("d-none");
-                    emailCheckExistSuccess.classList.add("d-none");
-                    emailCheckExistError.classList.remove("d-none");
                 }
             },
             error: function (response) {

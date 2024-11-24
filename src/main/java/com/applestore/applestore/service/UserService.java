@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import com.applestore.applestore.domain.Role;
 import com.applestore.applestore.domain.User;
 import com.applestore.applestore.domain.DTO.RegisterDTO;
+import com.applestore.applestore.domain.DTO.ResetPassDTO;
 import com.applestore.applestore.repository.RoleRepository;
 import com.applestore.applestore.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Service
 public class UserService {
@@ -99,4 +101,10 @@ public class UserService {
     public User handleFindUserByToken(String token) {
         return this.userRepository.findByToken(token);
     }
+
+    // public User mapperUser(User user, ResetPassDTO resetPassDTO) {
+    // user.set(resetPassDTO.getEmail());
+    // user.setPassword(resetPassDTO.getPassword());
+    // return user;
+    // }
 }
