@@ -108,7 +108,7 @@ public class HomePageClient {
                 "<div>" + " " + "※" + "  " + "認証する為、下のリンクをクリックしてください。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限は６０分です。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限が過ぎたら、無効となります。</div>" +
-                "<p>" + appUrl + "/regitrationConfirm?token=" + user.getToken() + "</p>" +
+                "<p>https://wbc.tokyo/regitrationConfirm?token=" + user.getToken() + "</p>" +
                 "<p>このメールに返信されましても、お答えする事は出来ませんのでご了承願います。</p>" +
                 "<p>-----------------------------------</p>" +
                 "<div>(C)Apple Store - WBC</div>\n" +
