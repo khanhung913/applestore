@@ -12635,7 +12635,7 @@ fieldset:disabled .btn {
     background-color: #000 !important;
     background-image: url(/client/img/bg.jpg) !important;
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
     background-origin: content-box;
     background-position: center
 }
