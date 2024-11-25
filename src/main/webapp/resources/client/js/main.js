@@ -352,19 +352,22 @@
         event.preventDefault();
         const loginForm = document.getElementById(`loginForm`);
         const resetPasswordForm = document.getElementById(`resetPasswordForm`);
-        resetPasswordForm.classList.remove("d-none");
         loginForm.classList.add("d-none");
+        resetPasswordForm.classList.remove("d-none");
+    });
+    $('.btnReturnLogin').click(function (event) {
+        event.preventDefault();
+        const loginForm = document.getElementById(`loginForm`);
+        const resetPasswordForm = document.getElementById(`resetPasswordForm`);
+        resetPasswordForm.classList.add("d-none");
+        loginForm.classList.remove("d-none");
     });
     $('.btnCheckEmailResetPassword').click(function (event) {
         event.preventDefault();
         const tk = $("meta[name='_csrf']").attr("content");
         const header = $("meta[name='_csrf_header']").attr("content");
         const email = document.getElementById(`resetPasswordEmail`).value;
-        // const resetPassEmail = document.getElementById(`resetPassEmail`);
-        // const resetPassCode = document.getElementById(`resetPassCode`);
-        // const emailCheckExistMessage = document.getElementById(`emailCheckExistMessage`);
-        // const emailCheckExistSuccess = document.getElementById(`emailCheckExistSuccess`);
-        // const emailCheckExistError = document.getElementById(`emailCheckExistError`);
+        const emailCheckExistMessage = document.getElementById(`emailCheckExistMessage`);
         $.ajax({
             url: `${window.location.origin}/api/checkExistEmailResetPassword`,
             beforeSend: function (xhr) {
@@ -384,6 +387,13 @@
                         data: JSON.stringify({ email: email }),
                         contentType: "application/json"
                     });
+                    document.getElementById(`emailCheckExistMessage`).textContent = "メールを確認してください。";
+                    emailCheckExistMessage.classList.remove(`text-danger`);
+                    emailCheckExistMessage.classList.add(`text-success`);
+                } else {
+                    emailCheckExistMessage.textContent = "メールが登録されていません。";
+                    emailCheckExistMessage.classList.remove(`text-success`);
+                    emailCheckExistMessage.classList.add(`text-danger`);
                 }
             },
             error: function (response) {

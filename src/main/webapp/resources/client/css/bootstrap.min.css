@@ -3134,11 +3134,11 @@ textarea.form-control.is-invalid {
     color: #a4b2c2;
 }
 
-.btn-check:focus+.btn,
+/* .btn-check:focus+.btn,
 .btn:focus {
     outline: 0;
     box-shadow: 0 0 0 0 #333;
-}
+} */
 
 .btn:disabled,
 .btn.disabled,
@@ -3159,13 +3159,13 @@ fieldset:disabled .btn {
     border-color: #000;
 }
 
-.btn-check:focus+.btn-primary,
+/* .btn-check:focus+.btn-primary,
 .btn-primary:focus {
     color: #000;
     background-color: #fff;
     border-color: #fff;
     box-shadow: 0 0 0 0 #fff;
-}
+} */
 
 .btn-check:checked+.btn-primary,
 .btn-check:active+.btn-primary,

@@ -133,15 +133,16 @@
                                                     <div class="form-floating mb-3">
                                                         <input type="email" class="form-control" id="resetPasswordEmail"
                                                             name="email" placeholder="name@example.com" required>
-                                                        <label for="email" class="form-label">メール</label>
+                                                        <label for="resetPasswordEmail" class="form-label">メール</label>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <h6 id="emailCheckExistMessage">登録したメールを入力してください。</h6>
+                                                    <p class="text-center" id="emailCheckExistMessage">登録したメールを入力してください。
+                                                    </p>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-flex justify-content-center my-3">
-                                                        <button class="btn btn-primary btn-lg mx-3"
+                                                        <button class="btnReturnLogin btn btn-primary btn-lg mx-3"
                                                             type="submit">戻る</button>
                                                         <button
                                                             class="btnCheckEmailResetPassword btn btn-primary btn-lg mx-3">確認</button>
