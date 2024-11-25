@@ -78,12 +78,12 @@
                                             <div class="">
                                                 <label class="form-label">電話番号:</label>
                                                 <input type="text" id="phone" name="phone" class="form-control"
-                                                    value="${user.phone}" name="phone" required />
+                                                    value="${user.phone}" name="phone" />
                                             </div>
                                             <div class="">
                                                 <label class="form-label">住所:</label>
                                                 <input type="text" class="form-control" value="${user.address}"
-                                                    name="address" required />
+                                                    name="address" />
                                             </div>
                                             <div class="">
                                                 <label for="avatarFile" class="form-label">写真を選択する:</label>

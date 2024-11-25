@@ -65,25 +65,19 @@ public class UserService {
         return this.userRepository.findByEmail(mail);
     }
 
-    public void handleSaveUserBeforeEditProfile(HttpSession session, User user, String fName, String lName,
+    public void handleSaveUserBeforeEditProfile(HttpSession session, String email, String fName, String lName,
             String phoneNumber,
-            String newAddress, String avt) {
-        User newUser = new User();
-        newUser.setId(user.getId());
-        newUser.setEmail(user.getEmail());
-        newUser.setFirstName(fName);
-        newUser.setLastName(lName);
+            String address, String avt) {
+        User user = this.handleFindByEmail(email);
+        user.setFirstName(fName);
+        user.setLastName(lName);
         if (avt != null) {
-            newUser.setAvatar(avt);
+            user.setAvatar(avt);
             session.setAttribute("avatar", avt);
-        } else {
-            newUser.setAvatar(user.getAvatar());
         }
-        newUser.setPhone(phoneNumber);
-        newUser.setPassword(user.getPassword());
-        newUser.setRole(user.getRole());
-        newUser.setAddress(newAddress);
-        this.userRepository.save(newUser);
+        user.setPhone(phoneNumber);
+        user.setAddress(address);
+        this.userRepository.save(user);
     }
 
     public String handleGenerateToken() {
