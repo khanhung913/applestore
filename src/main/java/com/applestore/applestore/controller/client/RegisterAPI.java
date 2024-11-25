@@ -12,6 +12,8 @@ import com.applestore.applestore.domain.User;
 import com.applestore.applestore.email.EmailService;
 import com.applestore.applestore.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 class RegisterForm {
     private String token;
     private String email;
@@ -73,10 +75,13 @@ public class RegisterAPI {
 
     @PostMapping("/api/sendCodeResetPassword")
     public void sendCodeResetPassword(
-            @RequestBody() RegisterForm registerForm) {
+            @RequestBody() RegisterForm registerForm, HttpServletRequest request) {
         User user = this.userService.handleFindByEmail(registerForm.getEmail());
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
         user.setToken(UUID.randomUUID().toString());
+        String url = request.getRequestURL().toString();
+        String contextPath = request.getRequestURI();
+        String baseURL = url.replace(contextPath, "");
         String html = "<!doctype html>\n" +
                 "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"\n" +
                 "      xmlns:th=\"http://www.thymeleaf.org\">\n" +
@@ -94,7 +99,7 @@ public class RegisterAPI {
                 "<div>" + " " + "※" + "  " + "パスワード再設定する為、下のリンクをクリックしてください。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限は６０分です。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限が過ぎたら、無効となります。</div>" +
-                "<p>https://wbc.tokyo/resetPassword?token=" + user.getToken() + "</p>" +
+                "<p>" + baseURL + "/resetPassword?token=" + user.getToken() + "</p>" +
                 "<p>このメールに返信されましても、お答えする事は出来ませんのでご了承願います。</p>" +
                 "<p>-----------------------------------</p>" +
                 "<div>(C)Apple Store - WBC</div>\n" +

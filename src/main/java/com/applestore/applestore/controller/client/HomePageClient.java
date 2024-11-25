@@ -90,7 +90,9 @@ public class HomePageClient {
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
         user.setRole(this.roleRepository.findByName("User"));
         user.setTimesendtoken(Calendar.getInstance().getTimeInMillis());
-        String appUrl = request.getLocalName();
+        String url = request.getRequestURL().toString();
+        String contextPath = request.getRequestURI();
+        String baseURL = url.replace(contextPath, "");
         String html = "<!doctype html>\n" +
                 "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"\n" +
                 "      xmlns:th=\"http://www.thymeleaf.org\">\n" +
@@ -108,7 +110,7 @@ public class HomePageClient {
                 "<div>" + " " + "※" + "  " + "認証する為、下のリンクをクリックしてください。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限は６０分です。</div>" +
                 "<div>" + " " + "※" + "  " + "有効期限が過ぎたら、無効となります。</div>" +
-                "<p>https://wbc.tokyo/regitrationConfirm?token=" + user.getToken() + "</p>" +
+                "<p>" + baseURL + "/regitrationConfirm?token=" + user.getToken() + "</p>" +
                 "<p>このメールに返信されましても、お答えする事は出来ませんのでご了承願います。</p>" +
                 "<p>-----------------------------------</p>" +
                 "<div>(C)Apple Store - WBC</div>\n" +
@@ -146,8 +148,6 @@ public class HomePageClient {
             return "redirect:/404-not-found";
         if (user.getToken().equals(token)
                 && Calendar.getInstance().getTimeInMillis() - user.getTimesendtoken() <= confirmTime) {
-            user.setToken("");
-            this.userService.handleSaveUser(user);
             model.addAttribute("token", token);
             model.addAttribute("newResetPassDTO", new ResetPassDTO());
             return "client/auth/resetpassword";
