@@ -46,6 +46,13 @@ public class ItemController {
         return "client/product/detail";
     }
 
+    @GetMapping("/product/target/{target}")
+    public String targetProductPage(Model model, @PathVariable String target) {
+        List<Product> products = this.productService.handlePrintByTarget(target);
+        model.addAttribute("products", products);
+        return "client/product/producttargetlist";
+    }
+
     @GetMapping("/product")
     public String allProduct(Model model) {
         List<Product> products = this.productService.handlePrintAllProducts();

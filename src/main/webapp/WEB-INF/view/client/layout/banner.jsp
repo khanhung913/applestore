@@ -4,8 +4,8 @@
             <div class="container-fluid py-5 hero-header">
                 <div class="container py-5">
                     <div class="row g-5 align-items-center">
-                        <div class="col-md-12 col-lg-7">
-                            <h1 class="mb-5 mt-5 display-6 text-light">Apple製品と出会うための <br />最高の場所です。</h1>
+                        <div class="col-md-12 col-lg-7 d-flex row">
+                            <h1 class="mb-5 mt-5 display-6 text-light">Apple製品と出会うための <br>最高の場所です。</h1>
                         </div>
                         <div class="col-md-12 col-lg-5">
                             <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">

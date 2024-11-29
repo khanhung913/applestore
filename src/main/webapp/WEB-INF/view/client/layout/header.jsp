@@ -2,8 +2,8 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
             <div class="container-fluid fixed-top d-flex justify-content-center">
-                <div class="container px-0 mx-5">
-                    <nav class="navbar navbar-light bg-light navbar-expand-xl mx-5">
+                <div class="container px-0">
+                    <nav class="navbar navbar-light bg-light navbar-expand-xl">
                         <a href="/" class="navbar-brand">
                             <img src="/client/img/Apple-Logo.png" width="100px" alt="">
                         </a>
@@ -11,11 +11,16 @@
                             data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars text-primary"></span>
                         </button>
-                        <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                            <div class="navbar-nav mx-auto">
+                        <div class="collapse navbar-collapse bg-light px-5" id="navbarCollapse">
+                            <div class="navbar-nav mx-auto d-flex justify-content-between align-items-center">
                                 <a href="/" class="nav-item nav-link active mx-5 fs-5">ホーム</a>
                                 <a href="/product" class="nav-item nav-link mx-5 fs-5">商品</a>
-                                <a href="/contact" class="nav-item nav-link mx-5 fs-5">連絡</a>
+                                <div class="input-group w-40 mx-auto my-auto mb-4">
+                                    <input type="search" class="form-control" placeholder="何を探していますか？"
+                                        aria-describedby="search-icon-1">
+                                    <span id="search-icon-1" class="input-group-text p-3"><i
+                                            class="fa fa-search"></i></span>
+                                </div>
                             </div>
                             <div class="d-flex m-3 me-0 flex-end me-5">
                                 <c:if test="${not empty pageContext.request.userPrincipal}">

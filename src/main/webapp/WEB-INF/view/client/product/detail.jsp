@@ -134,26 +134,30 @@
                                                 <ul class="list-unstyled fruite-categorie">
                                                     <li>
                                                         <div class="d-flex justify-content-between fruite-name">
-                                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>iPhone</a>
+                                                            <a href="/product/target/iphone"><i
+                                                                    class="fas fa-apple-alt me-2"></i>iPhone</a>
                                                             <span>(${iphone.size()})</span>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="d-flex justify-content-between fruite-name">
-                                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Mac</a>
+                                                            <a href="/product/target/mac"><i
+                                                                    class="fas fa-apple-alt me-2"></i>Mac</a>
                                                             <span>(${mac.size()})</span>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="d-flex justify-content-between fruite-name">
-                                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Apple
+                                                            <a href="/product/applewatch"><i
+                                                                    class="fas fa-apple-alt me-2"></i>Apple
                                                                 Watch</a>
                                                             <span>(${applewatch.size()})</span>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="d-flex justify-content-between fruite-name">
-                                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>AirPods</a>
+                                                            <a href="/product/airpods"><i
+                                                                    class="fas fa-apple-alt me-2"></i>AirPods</a>
                                                             <span>(${airpods.size()})</span>
                                                         </div>
                                                     </li>
