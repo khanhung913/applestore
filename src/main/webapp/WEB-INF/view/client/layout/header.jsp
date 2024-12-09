@@ -15,8 +15,8 @@
                             <div class="navbar-nav mx-auto bottom-0 d-flex justify-content-between align-items-center">
                                 <a href="/" class="nav-item nav-link active mx-5 fs-5">ホーム</a>
                                 <a href="/product" class="nav-item nav-link mx-5 fs-5">商品</a>
-                                <div class="input-group w-40 mx-auto mb-4">
-                                    <input type="search" class="form-control mt-4" placeholder="何を探していますか？"
+                                <div class="input-group w-35 mx-auto mb-4">
+                                    <input type="search" class="form-control mt-4" placeholder=" 何を探していますか？"
                                         aria-describedby="search-icon-1">
                                     <span id="search-icon-1" class="input-group-text p-3 mt-4"><i
                                             class="fa fa-search"></i></span>
